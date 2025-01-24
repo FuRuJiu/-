@@ -93,435 +93,508 @@
         footer p {
             margin: 0;
         }
+        /* 密码验证框样式 */
+        #password-prompt {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            padding: 20px;
+            border: 1px solid #ccc;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            text-align: center;
+        }
+        #password-prompt input {
+            padding: 10px;
+            margin: 10px 0;
+            width: 200px;
+        }
+        #password-prompt button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+        #password-prompt button:hover {
+            background-color: #0056b3;
+        }
+        #password-error {
+            color: red;
+            margin-top: 10px;
+        }
+        /* 隐藏网站内容 */
+        .hidden {
+            display: none;
+        }
     </style>
 </head>
 <body>
-    <header>
-        <h1>语法库总览</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">返回首页</a></li>
-                <li><a href="grammar-overview.html">返回语法库总览</a></li>
-            </ul>
-        </nav>
-    </header>
+    <!-- 密码验证框 -->
+    <div id="password-prompt">
+        <h2>请输入密码</h2>
+        <input type="password" id="password-input" placeholder="输入密码">
+        <button onclick="checkPassword()">提交</button>
+        <div id="password-error"></div>
+    </div>
 
-    <main>
-        <section>
-            <h2>语法库总览</h2>
-            <div class="grammar-details">
-                <h3>介词 "à" 的用法</h3>
-                <p><a href="à-details.html">点击查看详细内容</a></p>
-            </div>
-            <div class="grammar-details">
-                <h3>介词 "après" 的用法</h3>
-                <p><a href="après-details.html">点击查看详细内容</a></p>
-            </div>
-            <div class="grammar-details">
-                <h3>介词 "avec" 的用法</h3>
-                <p><a href="avec-details.html">点击查看详细内容</a></p>
-            </div>
-            <div class="grammar-details">
-                <h3>副词1</h3>
-                <p><a href="adverb-details.html">点击查看详细内容</a></p>
-            </div>
-            <div class="grammar-details">
-                <h3>副词2</h3>
-                <p><a href="adverb2-details.html">点击查看详细内容</a></p>
-            </div>
-            <div class="grammar-details">
-                <h3>副词3</h3>
-                <p><a href="adverb3-details.html">点击查看详细内容</a></p>
-            </div>
-            <div class="grammar-details">
-                <h3>副词4</h3>
-                <p><a href="adverb4-details.html">点击查看详细内容</a></p>
-            </div>
-            <div class="grammar-details">
-                <h3>副动词</h3>
-                <p><a href="gerund-details.html">点击查看详细内容</a></p>
-            </div>
-            <div class="grammar-details">
-                <h3>感叹句</h3>
-                <p><a href="exclamation-details.html">点击查看详细内容</a></p>
-            </div>
-            <div class="grammar-details">
-                <h3>构词法</h3>
-                <p><a href="word-formation-details.html">点击查看详细内容</a></p>
-            </div>
-            <div class="grammar-details">
-                <h3>关系代词1</h3>
-                <p><a href="relative-pronoun1-details.html">点击查看详细内容</a></p>
-            </div>
-            <div class="grammar-details">
-                <h3>关系代词2</h3>
-                <p><a href="relative-pronoun2-details.html">点击查看详细内容</a></p>
-            </div>
-            <div class="grammar-details">
-                <h3>冠词</h3>
-                <p><a href="article-details.html">点击查看详细内容</a></p>
-            </div>
-            <div class="grammar-details">
-                <h3>过去分词1</h3>
-                <p><a href="past-participle1-details.html">点击查看详细内容</a></p>
-            </div>
-            <div class="grammar-details">
-                <h3>过去分词2</h3>
-                <p><a href="past-participle2-details.html">点击查看详细内容</a></p>
-            </div>
-            <div class="grammar-details">
-                <h3>Basic</h3>
-                <p><a href="basic-details.html">点击查看详细内容</a></p>
-            </div>
-            <div class="grammar-details">
-                <h3>介词 "chez" 的用法</h3>
-                <p><a href="chez-details.html">点击查看详细内容</a></p>
-            </div>
-            <div class="grammar-details">
-                <h3>介词 "comme" 的用法</h3>
-                <p><a href="comme-details.html">点击查看详细内容</a></p>
-            </div>
-            <div class="grammar-details">
-                <h3>介词 "dans" 的用法</h3>
-                <p><a href="dans-details.html">点击查看详细内容</a></p>
-            </div>
-            <div class="grammar-details">
-                <h3>介词 "de" 的用法</h3>
-                <p><a href="de-details.html">点击查看详细内容</a></p>
-            </div>
-            <div class="grammar-details">
-                <h3>介词 "de" 的用法详解</h3>
-                <p><a href="de-usage-details.html">点击查看详细内容</a></p>
-            </div>
-            <div class="grammar-details">
-                <h3>介词 "dots" 的用法</h3>
-                <p><a href="dots-details.html">点击查看详细内容</a></p>
-            </div>
-            <div class="grammar-details">
-                <h3>代词 "en" 的用法</h3>
-                <p><a href="en-details.html">点击查看详细内容</a></p>
-            </div>
-            <div class="grammar-details">
-                <h3>代词 "mode" 的用法</h3>
-                <p><a href="mode-details.html">点击查看详细内容</a></p>
-            </div>
-            <div class="grammar-details">
-                <h3>代词 "on" 的用法</h3>
-                <p><a href="on-details.html">点击查看详细内容</a></p>
-            </div>
-            <div class="grammar-details">
-                <h3>介词 "pour" 的用法</h3>
-                <p><a href="pour-details.html">点击查看详细内容</a></p>
-            </div>
-            <div class="grammar-details">
-                <h3>sens</h3>
-                <p><a href="sens-details.html">点击查看详细内容</a></p>
-            </div>
-            <div class="grammar-details">
-                <h3>介词 "sur" 的用法</h3>
-                <p><a href="sur-details.html">点击查看详细内容</a></p>
-            </div>
-            <div class="grammar-details">
-                <h3>temps</h3>
-                <p><a href="temps-details.html">点击查看详细内容</a></p>
-            </div>
-            <div class="grammar-details">
-                <h3>tout 的用法</h3>
-                <p><a href="tout-details.html">点击查看详细内容</a></p>
-            </div>
-            <div class="grammar-details">
-                <h3>被动式</h3>
-                <p><a href="passive-details.html">点击查看详细内容</a></p>
-            </div>
-            <div class="grammar-details">
-                <h3>不定冠词的用法</h3>
-                <p><a href="indefinite-article-details.html">点击查看详细内容</a></p>
-            </div>
-            <div class="grammar-details">
-                <h3>不定式用法</h3>
-                <p><a href="infinitive-details.html">点击查看详细内容</a></p>
-            </div>
-            <div class="grammar-details">
-                <h3>部分冠词的用法</h3>
-                <p><a href="partitive-article-details.html">点击查看详细内容</a></p>
-            </div>
-            <div class="grammar-details">
-                <h3>常见法语单词总结</h3>
-                <p><a href="common-words-details.html">点击查看详细内容</a></p>
-            </div>
-            <div class="grammar-details">
-                <h3>陈述句</h3>
-                <p><a href="statement-details.html">点击查看详细内容</a></p>
-            </div>
-            <div class="grammar-details">
-                <h3>法语状语 y 的用法</h3>
-                <p><a href="adverbial-y-details.html">点击查看详细内容</a></p>
-            </div>
-            <div class="grammar-details">
-                <h3>法语代词用法</h3>
-                <p><a href="pronoun-details.html">点击查看详细内容</a></p>
-            </div>
-            <div class="grammar-details">
-                <h3>倒装句</h3>
-                <p><a href="inversion-details.html">点击查看详细内容</a></p>
-            </div>
-            <div class="grammar-details">
-                <h3>定冠词用法</h3>
-                <p><a href="definite-article-details.html">点击查看详细内容</a></p>
-            </div>
-            <div class="grammar-details">
-                <h3>动词用法</h3>
-                <p><a href="verb-details.html">点击查看详细内容</a></p>
-            </div>
-            <div class="grammar-details">
-                <h3>动词变化方式</h3>
-                <p><a href="verb-conjugation-details.html">点击查看详细内容</a></p>
-            </div>
-            <div class="grammar-details">
-                <h3>法语动词变化汇总</h3>
-                <p><a href="verb-conjugation-summary-details.html">点击查看详细内容</a></p>
-            </div>
-            <div class="grammar-details">
-                <h3>发音规则</h3>
-                <p><a href="pronunciation-rules-details.html">点击查看详细内容</a></p>
-            </div>
-            <div class="grammar-details">
-                <h3>法语语法</h3>
-                <p><a href="french-grammar-details.html">点击查看详细内容</a></p>
-            </div>
-            <div class="grammar-details">
-                <h3>法语中的国家（阴阳性）</h3>
-                <p><a href="country-gender-details.html">点击查看详细内容</a></p>
-            </div>
-            <div class="grammar-details">
-                <h3>分词式</h3>
-                <p><a href="participle-details.html">点击查看详细内容</a></p>
-            </div>
-            <div class="grammar-details">
-                <h3>否定句</h3>
-                <p><a href="negation-details.html">点击查看详细内容</a></p>
-            </div>
-            <div class="grammar-details">
-                <h3>复合关系代词</h3>
-                <p><a href="compound-relative-pronoun-details.html">点击查看详细内容</a></p>
-            </div>
-            <div class="grammar-details">
-                <h3>复合过去时</h3>
-                <p><a href="compound-past-details.html">点击查看详细内容</a></p>
-            </div>
-            <div class="grammar-details">
-                <h3>复合句</h3>
-                <p><a href="compound-sentence-details.html">点击查看详细内容</a></p>
-            </div>
-            <div class="grammar-section">
-                <h3>过去将来时</h3>
-                <p><a href="过去将来时.html">点击查看详细内容</a></p>
-            </div>
-            <div class="grammar-section">
-                <h3>过去进行时</h3>
-                <p><a href="过去进行时.html">点击查看详细内容</a></p>
-            </div>
-            <div class="grammar-section">
-                <h3>过去先将来时</h3>
-                <p><a href="过去先将来时.html">点击查看详细内容</a></p>
-            </div>
-            <div class="grammar-section">
-                <h3>过去最近将来时</h3>
-                <p><a href="过去最近将来时.html">点击查看详细内容</a></p>
-            </div>
-            <div class="grammar-section">
-                <h3>间接宾语人称代词</h3>
-                <p><a href="间接宾语人称代词.html">点击查看详细内容</a></p>
-            </div>
-            <div class="grammar-section">
-                <h3>简单关系代词</h3>
-                <p><a href="简单关系代词.html">点击查看详细内容</a></p>
-            </div>
-            <div class="grammar-section">
-                <h3>简单过去时1</h3>
-                <p><a href="简单过去时1.html">点击查看详细内容</a></p>
-            </div>
-            <div class="grammar-section">
-                <h3>简单过去时2</h3>
-                <p><a href="简单过去时2.html">点击查看详细内容</a></p>
-            </div>
-            <div class="grammar-section">
-                <h3>简单将来时</h3>
-                <p><a href="简单将来时.html">点击查看详细内容</a></p>
-            </div>
-            <div class="grammar-section">
-                <h3>简单句</h3>
-                <p><a href="简单句.html">点击查看详细内容</a></p>
-            </div>
-            <div class="grammar-section">
-                <h3>介词</h3>
-                <p><a href="介词.html">点击查看详细内容</a></p>
-            </div>
-            <div class="grammar-section">
-                <h3>静止</h3>
-                <p><a href="静止.html">点击查看详细内容</a></p>
-            </div>
-            <div class="grammar-section">
-                <h3>连词</h3>
-                <p><a href="连词.html">点击查看详细内容</a></p>
-            </div>
-            <div class="grammar-section">
-                <h3>名词</h3>
-                <p><a href="名词.html">点击查看详细内容</a></p>
-            </div>
-            <div class="grammar-section">
-                <h3>命令式</h3>
-                <p><a href="命令式.html">点击查看详细内容</a></p>
-            </div>
-            <div class="grammar-section">
-                <h3>强调句</h3>
-                <p><a href="强调句.html">点击查看详细内容</a></p>
-            </div>
-            <div class="grammar-section">
-                <h3>书写事项</h3>
-                <p><a href="书写事项.html">点击查看详细内容</a></p>
-            </div>
-            <div class="grammar-section">
-                <h3>数词</h3>
-                <p><a href="数词.html">点击查看详细内容</a></p>
-            </div>
-            <div class="grammar-section">
-                <h3>刷题所遇见的关键词汇与短语固定用法</h3>
-                <p><a href="刷题所遇见的关键词汇与短语固定用法.html">点击查看详细内容</a></p>
-            </div>
-            <div class="grammar-section">
-                <h3>双宾语代词</h3>
-                <p><a href="双宾语代词.html">点击查看详细内容</a></p>
-            </div>
-            <div class="grammar-section">
-                <h3>缩合冠词</h3>
-                <p><a href="缩合冠词.html">点击查看详细内容</a></p>
-            </div>
-            <div class="grammar-section">
-                <h3>条件式</h3>
-                <p><a href="条件式.html">点击查看详细内容</a></p>
-            </div>
-            <div class="grammar-section">
-                <h3>未完成过去时</h3>
-                <p><a href="未完成过去时.html">点击查看详细内容</a></p>
-            </div>
-            <div class="grammar-section">
-                <h3>先过去时</h3>
-                <p><a href="先过去时.html">点击查看详细内容</a></p>
-            </div>
-            <div class="grammar-section">
-                <h3>先将来时</h3>
-                <p><a href="先将来时.html">点击查看详细内容</a></p>
-            </div>
-            <div class="grammar-section">
-                <h3>现在分词</h3>
-                <p><a href="现在分词.html">点击查看详细内容</a></p>
-            </div>
-            <div class="grammar-section">
-                <h3>现在进行时</h3>
-                <p><a href="现在进行时.html">点击查看详细内容</a></p>
-            </div>
-            <div class="grammar-section">
-                <h3>现在时</h3>
-                <p><a href="现在时.html">点击查看详细内容</a></p>
-            </div>
-            <div class="grammar-section">
-                <h3>形容词</h3>
-                <p><a href="形容词.html">点击查看详细内容</a></p>
-            </div>
-            <div class="grammar-section">
-                <h3>修饰</h3>
-                <p><a href="修饰.html">点击查看详细内容</a></p>
-            </div>
-            <div class="grammar-section">
-                <h3>直接引语与间接引语</h3>
-                <p><a href="直接引语与间接引语.html">点击查看详细内容</a></p>
-            </div>
-            <div class="grammar-section">
-                <h3>虚拟式</h3>
-                <p><a href="虚拟式.html">点击查看详细内容</a></p>
-            </div>
-            <div class="grammar-section">
-                <h3>疑问句</h3>
-                <p><a href="疑问句.html">点击查看详细内容</a></p>
-            </div>
-            <div class="grammar-section">
-                <h3>引用句</h3>
-                <p><a href="引用句.html">点击查看详细内容</a></p>
-            </div>
-            <div class="grammar-section">
-                <h3>愈过去时</h3>
-                <p><a href="愈过去时.html">点击查看详细内容</a></p>
-            </div>
-            <div class="grammar-section">
-                <h3>运动</h3>
-                <p><a href="运动.html">点击查看详细内容</a></p>
-            </div>
-            <div class="grammar-section">
-                <h3>在复合时态之中的直宾与间宾</h3>
-                <p><a href="在复合时态之中的直宾与间宾.html">点击查看详细内容</a></p>
-            </div>
-            <div class="grammar-section">
-                <h3>直陈式</h3>
-                <p><a href="直陈式.html">点击查看详细内容</a></p>
-            </div>
-            <div class="grammar-section">
-                <h3>直接宾语人称代词</h3>
-                <p><a href="直接宾语人称代词.html">点击查看详细内容</a></p>
-            </div>
-            <div class="grammar-section">
-                <h3>指示代词</h3>
-                <p><a href="指示代词.html">点击查看详细内容</a></p>
-            </div>
-            <div class="grammar-section">
-                <h3>中性代词</h3>
-                <p><a href="中性代词.html">点击查看详细内容</a></p>
-            </div>
-            <div class="grammar-section">
-                <h3>重读人称代词</h3>
-                <p><a href="重读人称代词.html">点击查看详细内容</a></p>
-            </div>
-            <div class="grammar-section">
-                <h3>主有代词</h3>
-                <p><a href="主有代词.html">点击查看详细内容</a></p>
-            </div>
-            <div class="grammar-section">
-                <h3>主语人称代词</h3>
-                <p><a href="主语人称代词.html">点击查看详细内容</a></p>
-            </div>
-            <div class="grammar-section">
-                <h3>浊化</h3>
-                <p><a href="浊化.html">点击查看详细内容</a></p>
-            </div>
-            <div class="grammar-section">
-                <h3>自反人称代词</h3>
-                <p><a href="自反人称代词.html">点击查看详细内容</a></p>
-            </div>
-            <div class="grammar-section">
-                <h3>最近过去过去时</h3>
-                <p><a href="最近过去过去时.html">点击查看详细内容</a></p>
-            </div>
-            <div class="grammar-section">
-                <h3>最近过去时</h3>
-                <p><a href="最近过去时.html">点击查看详细内容</a></p>
-            </div>
-            <div class="grammar-section">
-                <h3>最近将来时</h3>
-                <p><a href="最近将来时.html">点击查看详细内容</a></p>
-            </div>
-            <div class="grammar-section">
-                <h3>做法语800题时所卡住的点</h3>
-                <p><a href="做法语800题时所卡住的点.html">点击查看详细内容</a></p>
-            </div>
-            <div class="grammar-section">
-                <h3>做阅读的时候的陌生词汇</h3>
-                <p><a href="做阅读的时候的陌生词汇.html">点击查看详细内容</a></p>
-            </div>
-        </section>
-    </main>
+    <!-- 网站内容 -->
+    <div id="content" class="hidden">
+        <header>
+            <h1>语法库总览</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">返回首页</a></li>
+                    <li><a href="grammar-overview.html">返回语法库总览</a></li>
+                </ul>
+            </nav>
+        </header>
 
-    <footer>
-        <p>&copy; 2023 法语学习网站</p>
-    </footer>
+        <main>
+            <section>
+                <h2>语法库总览</h2>
+                <div class="grammar-details">
+                    <h3>介词 "à" 的用法</h3>
+                    <p><a href="à-details.html">点击查看详细内容</a></p>
+                </div>
+                <div class="grammar-details">
+                    <h3>介词 "après" 的用法</h3>
+                    <p><a href="après-details.html">点击查看详细内容</a></p>
+                </div>
+                <div class="grammar-details">
+                    <h3>介词 "avec" 的用法</h3>
+                    <p><a href="avec-details.html">点击查看详细内容</a></p>
+                </div>
+                <div class="grammar-details">
+                    <h3>副词1</h3>
+                    <p><a href="adverb-details.html">点击查看详细内容</a></p>
+                </div>
+                <div class="grammar-details">
+                    <h3>副词2</h3>
+                    <p><a href="adverb2-details.html">点击查看详细内容</a></p>
+                </div>
+                <div class="grammar-details">
+                    <h3>副词3</h3>
+                    <p><a href="adverb3-details.html">点击查看详细内容</a></p>
+                </div>
+                <div class="grammar-details">
+                    <h3>副词4</h3>
+                    <p><a href="adverb4-details.html">点击查看详细内容</a></p>
+                </div>
+                <div class="grammar-details">
+                    <h3>副动词</h3>
+                    <p><a href="gerund-details.html">点击查看详细内容</a></p>
+                </div>
+                <div class="grammar-details">
+                    <h3>感叹句</h3>
+                    <p><a href="exclamation-details.html">点击查看详细内容</a></p>
+                </div>
+                <div class="grammar-details">
+                    <h3>构词法</h3>
+                    <p><a href="word-formation-details.html">点击查看详细内容</a></p>
+                </div>
+                <div class="grammar-details">
+                    <h3>关系代词1</h3>
+                    <p><a href="relative-pronoun1-details.html">点击查看详细内容</a></p>
+                </div>
+                <div class="grammar-details">
+                    <h3>关系代词2</h3>
+                    <p><a href="relative-pronoun2-details.html">点击查看详细内容</a></p>
+                </div>
+                <div class="grammar-details">
+                    <h3>冠词</h3>
+                    <p><a href="article-details.html">点击查看详细内容</a></p>
+                </div>
+                <div class="grammar-details">
+                    <h3>过去分词1</h3>
+                    <p><a href="past-participle1-details.html">点击查看详细内容</a></p>
+                </div>
+                <div class="grammar-details">
+                    <h3>过去分词2</h3>
+                    <p><a href="past-participle2-details.html">点击查看详细内容</a></p>
+                </div>
+                <div class="grammar-details">
+                    <h3>Basic</h3>
+                    <p><a href="basic-details.html">点击查看详细内容</a></p>
+                </div>
+                <div class="grammar-details">
+                    <h3>介词 "chez" 的用法</h3>
+                    <p><a href="chez-details.html">点击查看详细内容</a></p>
+                </div>
+                <div class="grammar-details">
+                    <h3>介词 "comme" 的用法</h3>
+                    <p><a href="comme-details.html">点击查看详细内容</a></p>
+                </div>
+                <div class="grammar-details">
+                    <h3>介词 "dans" 的用法</h3>
+                    <p><a href="dans-details.html">点击查看详细内容</a></p>
+                </div>
+                <div class="grammar-details">
+                    <h3>介词 "de" 的用法</h3>
+                    <p><a href="de-details.html">点击查看详细内容</a></p>
+                </div>
+                <div class="grammar-details">
+                    <h3>介词 "de" 的用法详解</h3>
+                    <p><a href="de-usage-details.html">点击查看详细内容</a></p>
+                </div>
+                <div class="grammar-details">
+                    <h3>介词 "dots" 的用法</h3>
+                    <p><a href="dots-details.html">点击查看详细内容</a></p>
+                </div>
+                <div class="grammar-details">
+                    <h3>代词 "en" 的用法</h3>
+                    <p><a href="en-details.html">点击查看详细内容</a></p>
+                </div>
+                <div class="grammar-details">
+                    <h3>代词 "mode" 的用法</h3>
+                    <p><a href="mode-details.html">点击查看详细内容</a></p>
+                </div>
+                <div class="grammar-details">
+                    <h3>代词 "on" 的用法</h3>
+                    <p><a href="on-details.html">点击查看详细内容</a></p>
+                </div>
+                <div class="grammar-details">
+                    <h3>介词 "pour" 的用法</h3>
+                    <p><a href="pour-details.html">点击查看详细内容</a></p>
+                </div>
+                <div class="grammar-details">
+                    <h3>sens</h3>
+                    <p><a href="sens-details.html">点击查看详细内容</a></p>
+                </div>
+                <div class="grammar-details">
+                    <h3>介词 "sur" 的用法</h3>
+                    <p><a href="sur-details.html">点击查看详细内容</a></p>
+                </div>
+                <div class="grammar-details">
+                    <h3>temps</h3>
+                    <p><a href="temps-details.html">点击查看详细内容</a></p>
+                </div>
+                <div class="grammar-details">
+                    <h3>tout 的用法</h3>
+                    <p><a href="tout-details.html">点击查看详细内容</a></p>
+                </div>
+                <div class="grammar-details">
+                    <h3>被动式</h3>
+                    <p><a href="passive-details.html">点击查看详细内容</a></p>
+                </div>
+                <div class="grammar-details">
+                    <h3>不定冠词的用法</h3>
+                    <p><a href="indefinite-article-details.html">点击查看详细内容</a></p>
+                </div>
+                <div class="grammar-details">
+                    <h3>不定式用法</h3>
+                    <p><a href="infinitive-details.html">点击查看详细内容</a></p>
+                </div>
+                <div class="grammar-details">
+                    <h3>部分冠词的用法</h3>
+                    <p><a href="partitive-article-details.html">点击查看详细内容</a></p>
+                </div>
+                <div class="grammar-details">
+                    <h3>常见法语单词总结</h3>
+                    <p><a href="common-words-details.html">点击查看详细内容</a></p>
+                </div>
+                <div class="grammar-details">
+                    <h3>陈述句</h3>
+                    <p><a href="statement-details.html">点击查看详细内容</a></p>
+                </div>
+                <div class="grammar-details">
+                    <h3>法语状语 y 的用法</h3>
+                    <p><a href="adverbial-y-details.html">点击查看详细内容</a></p>
+                </div>
+                <div class="grammar-details">
+                    <h3>法语代词用法</h3>
+                    <p><a href="pronoun-details.html">点击查看详细内容</a></p>
+                </div>
+                <div class="grammar-details">
+                    <h3>倒装句</h3>
+                    <p><a href="inversion-details.html">点击查看详细内容</a></p>
+                </div>
+                <div class="grammar-details">
+                    <h3>定冠词用法</h3>
+                    <p><a href="definite-article-details.html">点击查看详细内容</a></p>
+                </div>
+                <div class="grammar-details">
+                    <h3>动词用法</h3>
+                    <p><a href="verb-details.html">点击查看详细内容</a></p>
+                </div>
+                <div class="grammar-details">
+                    <h3>动词变化方式</h3>
+                    <p><a href="verb-conjugation-details.html">点击查看详细内容</a></p>
+                </div>
+                <div class="grammar-details">
+                    <h3>法语动词变化汇总</h3>
+                    <p><a href="verb-conjugation-summary-details.html">点击查看详细内容</a></p>
+                </div>
+                <div class="grammar-details">
+                    <h3>发音规则</h3>
+                    <p><a href="pronunciation-rules-details.html">点击查看详细内容</a></p>
+                </div>
+                <div class="grammar-details">
+                    <h3>法语语法</h3>
+                    <p><a href="french-grammar-details.html">点击查看详细内容</a></p>
+                </div>
+                <div class="grammar-details">
+                    <h3>法语中的国家（阴阳性）</h3>
+                    <p><a href="country-gender-details.html">点击查看详细内容</a></p>
+                </div>
+                <div class="grammar-details">
+                    <h3>分词式</h3>
+                    <p><a href="participle-details.html">点击查看详细内容</a></p>
+                </div>
+                <div class="grammar-details">
+                    <h3>否定句</h3>
+                    <p><a href="negation-details.html">点击查看详细内容</a></p>
+                </div>
+                <div class="grammar-details">
+                    <h3>复合关系代词</h3>
+                    <p><a href="compound-relative-pronoun-details.html">点击查看详细内容</a></p>
+                </div>
+                <div class="grammar-details">
+                    <h3>复合过去时</h3>
+                    <p><a href="compound-past-details.html">点击查看详细内容</a></p>
+                </div>
+                <div class="grammar-details">
+                    <h3>复合句</h3>
+                    <p><a href="compound-sentence-details.html">点击查看详细内容</a></p>
+                </div>
+                <div class="grammar-section">
+                    <h3>过去将来时</h3>
+                    <p><a href="过去将来时.html">点击查看详细内容</a></p>
+                </div>
+                <div class="grammar-section">
+                    <h3>过去进行时</h3>
+                    <p><a href="过去进行时.html">点击查看详细内容</a></p>
+                </div>
+                <div class="grammar-section">
+                    <h3>过去先将来时</h3>
+                    <p><a href="过去先将来时.html">点击查看详细内容</a></p>
+                </div>
+                <div class="grammar-section">
+                    <h3>过去最近将来时</h3>
+                    <p><a href="过去最近将来时.html">点击查看详细内容</a></p>
+                </div>
+                <div class="grammar-section">
+                    <h3>间接宾语人称代词</h3>
+                    <p><a href="间接宾语人称代词.html">点击查看详细内容</a></p>
+                </div>
+                <div class="grammar-section">
+                    <h3>简单关系代词</h3>
+                    <p><a href="简单关系代词.html">点击查看详细内容</a></p>
+                </div>
+                <div class="grammar-section">
+                    <h3>简单过去时1</h3>
+                    <p><a href="简单过去时1.html">点击查看详细内容</a></p>
+                </div>
+                <div class="grammar-section">
+                    <h3>简单过去时2</h3>
+                    <p><a href="简单过去时2.html">点击查看详细内容</a></p>
+                </div>
+                <div class="grammar-section">
+                    <h3>简单将来时</h3>
+                    <p><a href="简单将来时.html">点击查看详细内容</a></p>
+                </div>
+                <div class="grammar-section">
+                    <h3>简单句</h3>
+                    <p><a href="简单句.html">点击查看详细内容</a></p>
+                </div>
+                <div class="grammar-section">
+                    <h3>介词</h3>
+                    <p><a href="介词.html">点击查看详细内容</a></p>
+                </div>
+                <div class="grammar-section">
+                    <h3>静止</h3>
+                    <p><a href="静止.html">点击查看详细内容</a></p>
+                </div>
+                <div class="grammar-section">
+                    <h3>连词</h3>
+                    <p><a href="连词.html">点击查看详细内容</a></p>
+                </div>
+                <div class="grammar-section">
+                    <h3>名词</h3>
+                    <p><a href="名词.html">点击查看详细内容</a></p>
+                </div>
+                <div class="grammar-section">
+                    <h3>命令式</h3>
+                    <p><a href="命令式.html">点击查看详细内容</a></p>
+                </div>
+                <div class="grammar-section">
+                    <h3>强调句</h3>
+                    <p><a href="强调句.html">点击查看详细内容</a></p>
+                </div>
+                <div class="grammar-section">
+                    <h3>书写事项</h3>
+                    <p><a href="书写事项.html">点击查看详细内容</a></p>
+                </div>
+                <div class="grammar-section">
+                    <h3>数词</h3>
+                    <p><a href="数词.html">点击查看详细内容</a></p>
+                </div>
+                <div class="grammar-section">
+                    <h3>刷题所遇见的关键词汇与短语固定用法</h3>
+                    <p><a href="刷题所遇见的关键词汇与短语固定用法.html">点击查看详细内容</a></p>
+                </div>
+                <div class="grammar-section">
+                    <h3>双宾语代词</h3>
+                    <p><a href="双宾语代词.html">点击查看详细内容</a></p>
+                </div>
+                <div class="grammar-section">
+                    <h3>缩合冠词</h3>
+                    <p><a href="缩合冠词.html">点击查看详细内容</a></p>
+                </div>
+                <div class="grammar-section">
+                    <h3>条件式</h3>
+                    <p><a href="条件式.html">点击查看详细内容</a></p>
+                </div>
+                <div class="grammar-section">
+                    <h3>未完成过去时</h3>
+                    <p><a href="未完成过去时.html">点击查看详细内容</a></p>
+                </div>
+                <div class="grammar-section">
+                    <h3>先过去时</h3>
+                    <p><a href="先过去时.html">点击查看详细内容</a></p>
+                </div>
+                <div class="grammar-section">
+                    <h3>先将来时</h3>
+                    <p><a href="先将来时.html">点击查看详细内容</a></p>
+                </div>
+                <div class="grammar-section">
+                    <h3>现在分词</h3>
+                    <p><a href="现在分词.html">点击查看详细内容</a></p>
+                </div>
+                <div class="grammar-section">
+                    <h3>现在进行时</h3>
+                    <p><a href="现在进行时.html">点击查看详细内容</a></p>
+                </div>
+                <div class="grammar-section">
+                    <h3>现在时</h3>
+                    <p><a href="现在时.html">点击查看详细内容</a></p>
+                </div>
+                <div class="grammar-section">
+                    <h3>形容词</h3>
+                    <p><a href="形容词.html">点击查看详细内容</a></p>
+                </div>
+                <div class="grammar-section">
+                    <h3>修饰</h3>
+                    <p><a href="修饰.html">点击查看详细内容</a></p>
+                </div>
+                <div class="grammar-section">
+                    <h3>直接引语与间接引语</h3>
+                    <p><a href="直接引语与间接引语.html">点击查看详细内容</a></p>
+                </div>
+                <div class="grammar-section">
+                    <h3>虚拟式</h3>
+                    <p><a href="虚拟式.html">点击查看详细内容</a></p>
+                </div>
+                <div class="grammar-section">
+                    <h3>疑问句</h3>
+                    <p><a href="疑问句.html">点击查看详细内容</a></p>
+                </div>
+                <div class="grammar-section">
+                    <h3>引用句</h3>
+                    <p><a href="引用句.html">点击查看详细内容</a></p>
+                </div>
+                <div class="grammar-section">
+                    <h3>愈过去时</h3>
+                    <p><a href="愈过去时.html">点击查看详细内容</a></p>
+                </div>
+                <div class="grammar-section">
+                    <h3>运动</h3>
+                    <p><a href="运动.html">点击查看详细内容</a></p>
+                </div>
+                <div class="grammar-section">
+                    <h3>在复合时态之中的直宾与间宾</h3>
+                    <p><a href="在复合时态之中的直宾与间宾.html">点击查看详细内容</a></p>
+                </div>
+                <div class="grammar-section">
+                    <h3>直陈式</h3>
+                    <p><a href="直陈式.html">点击查看详细内容</a></p>
+                </div>
+                <div class="grammar-section">
+                    <h3>直接宾语人称代词</h3>
+                    <p><a href="直接宾语人称代词.html">点击查看详细内容</a></p>
+                </div>
+                <div class="grammar-section">
+                    <h3>指示代词</h3>
+                    <p><a href="指示代词.html">点击查看详细内容</a></p>
+                </div>
+                <div class="grammar-section">
+                    <h3>中性代词</h3>
+                    <p><a href="中性代词.html">点击查看详细内容</a></p>
+                </div>
+                <div class="grammar-section">
+                    <h3>重读人称代词</h3>
+                    <p><a href="重读人称代词.html">点击查看详细内容</a></p>
+                </div>
+                <div class="grammar-section">
+                    <h3>主有代词</h3>
+                    <p><a href="主有代词.html">点击查看详细内容</a></p>
+                </div>
+                <div class="grammar-section">
+                    <h3>主语人称代词</h3>
+                    <p><a href="主语人称代词.html">点击查看详细内容</a></p>
+                </div>
+                <div class="grammar-section">
+                    <h3>浊化</h3>
+                    <p><a href="浊化.html">点击查看详细内容</a></p>
+                </div>
+                <div class="grammar-section">
+                    <h3>自反人称代词</h3>
+                    <p><a href="自反人称代词.html">点击查看详细内容</a></p>
+                </div>
+                <div class="grammar-section">
+                    <h3>最近过去过去时</h3>
+                    <p><a href="最近过去过去时.html">点击查看详细内容</a></p>
+                </div>
+                <div class="grammar-section">
+                    <h3>最近过去时</h3>
+                    <p><a href="最近过去时.html">点击查看详细内容</a></p>
+                </div>
+                <div class="grammar-section">
+                    <h3>最近将来时</h3>
+                    <p><a href="最近将来时.html">点击查看详细内容</a></p>
+                </div>
+                <div class="grammar-section">
+                    <h3>做法语800题时所卡住的点</h3>
+                    <p><a href="做法语800题时所卡住的点.html">点击查看详细内容</a></p>
+                </div>
+                <div class="grammar-section">
+                    <h3>做阅读的时候的陌生词汇</h3>
+                    <p><a href="做阅读的时候的陌生词汇.html">点击查看详细内容</a></p>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2023 法语学习网站</p>
+        </footer>
+    </div>
+
+    <script>
+        // 密码验证逻辑
+        const correctPassword = "king771121"; // 设置密码
+        const passwordPrompt = document.getElementById("password-prompt");
+        const content = document.getElementById("content");
+        const passwordError = document.getElementById("password-error");
+
+        function checkPassword() {
+            const inputPassword = document.getElementById("password-input").value;
+            if (inputPassword === correctPassword) {
+                passwordPrompt.style.display = "none"; // 隐藏密码框
+                content.classList.remove("hidden"); // 显示网站内容
+            } else {
+                passwordError.textContent = "密码错误，请重试！";
+            }
+        }
+
+        // 如果用户已经输入过正确密码，跳过验证
+        if (sessionStorage.getItem("authenticated") === "true") {
+            passwordPrompt.style.display = "none";
+            content.classList.remove("hidden");
+        } else {
+            sessionStorage.setItem("authenticated", "false");
+        }
+    </script>
 </body>
 </html> 
