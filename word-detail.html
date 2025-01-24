@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>单词详情</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>单词详情</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">返回首页</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2 id="word-title"></h2>
+            <p id="word-meaning"></p>
+            <div class="dictionary-links">
+                <h3>选择词典：</h3>
+                <ul>
+                    <li><a id="wordreference-link" target="_blank">WordReference</a></li>
+                    <li><a id="larousse-link" target="_blank">Larousse</a></li>
+                    <li><a id="reverso-link" target="_blank">Reverso</a></li>
+                    <li><a id="collins-link" target="_blank">Collins</a></li>
+                    <li><a id="cambridge-link" target="_blank">Cambridge</a></li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 法语学习网站</p>
+    </footer>
+
+    <script>
+        // 从 URL 参数中获取单词和含义
+        const urlParams = new URLSearchParams(window.location.search);
+        const word = urlParams.get('word');
+        const meaning = urlParams.get('meaning');
+
+        // 更新页面内容
+        if (word && meaning) {
+            document.getElementById('word-title').textContent = word;
+            document.getElementById('word-meaning').textContent = meaning;
+
+            // 设置词典链接
+            const encodedWord = encodeURIComponent(word);
+            document.getElementById('wordreference-link').href = `https://www.wordreference.com/fren/${encodedWord}`;
+            document.getElementById('wordreference-link').textContent = `在 WordReference 中查看 "${word}"`;
+
+            document.getElementById('larousse-link').href = `https://www.larousse.fr/dictionnaires/francais/${encodedWord}`;
+            document.getElementById('larousse-link').textContent = `在 Larousse 中查看 "${word}"`;
+
+            document.getElementById('reverso-link').href = `https://dictionary.reverso.net/french-english/${encodedWord}`;
+            document.getElementById('reverso-link').textContent = `在 Reverso 中查看 "${word}"`;
+
+            document.getElementById('collins-link').href = `https://www.collinsdictionary.com/dictionary/french-english/${encodedWord}`;
+            document.getElementById('collins-link').textContent = `在 Collins 中查看 "${word}"`;
+
+            document.getElementById('cambridge-link').href = `https://dictionary.cambridge.org/dictionary/french-english/${encodedWord}`;
+            document.getElementById('cambridge-link').textContent = `在 Cambridge 中查看 "${word}"`;
+        } else {
+            document.getElementById('word-title').textContent = '未找到单词';
+            document.getElementById('word-meaning').textContent = '请返回并选择一个单词。';
+        }
+    </script>
+</body>
+</html> 

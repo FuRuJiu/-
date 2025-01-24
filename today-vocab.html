@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>今日法国 - 最新新闻</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>今日法国 - 最新新闻</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">返回首页</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>最新法国新闻</h2>
+            <div id="news-container">
+                <p>正在加载新闻...</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>法语学习网站</p>
+    </footer>
+
+    <script>
+        // 示例：从 API 获取最新法国新闻
+        const newsContainer = document.getElementById('news-container');
+
+        // 模拟新闻数据
+        const newsData = [
+            {
+                title: '法国总统访问德国',
+                content: '法国总统马克龙于本周访问德国，与德国总理朔尔茨举行会谈，讨论欧洲能源危机和乌克兰局势。',
+                date: '2023-10-10',
+                link: 'https://www.lemonde.fr/international/article/2023/10/10/macron-en-allemagne-pour-des-discussions-sur-la-crise-energetique_6191234_3210.html'
+            },
+            {
+                title: '巴黎举办国际艺术展',
+                content: '巴黎卢浮宫举办了一场盛大的国际艺术展，吸引了来自世界各地的艺术家和观众。',
+                date: '2023-10-09',
+                link: 'https://www.lefigaro.fr/culture/2023/10/09/03004-20231009ARTFIG00345/paris-accueille-une-exposition-internationale-d-art.php'
+            },
+            {
+                title: '法国推出新环保政策',
+                content: '法国政府宣布了一系列新的环保政策，旨在减少碳排放和促进可持续发展。',
+                date: '2023-10-08',
+                link: 'https://www.liberation.fr/ecologie/2023/10/08/la-france-lance-une-nouvelle-politique-environnementale_6191234/'
+            }
+        ];
+
+        // 更新新闻内容
+        if (newsData.length > 0) {
+            let newsHTML = '';
+            newsData.forEach(news => {
+                newsHTML += `
+                    <div class="news-item">
+                        <h3><a href="${news.link}" target="_blank">${news.title}</a></h3>
+                        <p>${news.content}</p>
+                        <small>发布日期: ${news.date}</small>
+                    </div>
+                `;
+            });
+            newsContainer.innerHTML = newsHTML;
+        } else {
+            newsContainer.innerHTML = '<p>暂无最新新闻。</p>';
+        }
+    </script>
+</body>
+</html> 
