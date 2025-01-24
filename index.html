@@ -3,6 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="法语学习网站，提供全面的法语语法、词汇和发音学习资源。">
+    <meta name="keywords" content="法语学习, 法语语法, 法语词汇, 法语发音">
+    <meta name="author" content="法语学习网站">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="robots" content="index, follow">
     <title>法语学习网站</title>
     <!-- 引入 Fuse.js -->
     <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2/dist/fuse.min.js"></script>
@@ -16,173 +21,50 @@
     <!-- 预加载关键资源 -->
     <link rel="preload" href="styles.css" as="style">
     <link rel="preload" href="script.js" as="script">
-    <!-- 异步加载非关键 CSS -->
+    <!-- 异步加载非关键CSS -->
     <link rel="stylesheet" href="styles.css" media="print" onload="this.media='all'">
+    <!-- 安全相关的HTTP头 -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline';">
+    <meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
 </head>
 <body>
     <header>
-        <h1>欢迎来到法语学习网站</h1>
-        <!-- 添加搜索框 -->
-        <div class="search-container">
-            <input type="text" id="search-input" placeholder="输入法语单词或短语..." autocomplete="off">
-            <select id="dictionary-select">
-                <option value="larousse">Larousse 词典</option>
-                <option value="frdic">法语助手</option>
-                <option value="wordreference">WordReference</option>
-                <option value="collins">Collins 词典</option>
-                <option value="reverso">Reverso 词典</option>
-                <option value="linguee">Linguee 词典</option>
-                <option value="dictionnaire">Le Dictionnaire</option>
-            </select>
-            <button id="search-button">搜索</button>
-            <!-- 添加自动补全建议容器 -->
-            <div id="autocomplete-suggestions" class="autocomplete-suggestions"></div>
-        </div>
+        <h1>法语学习网站</h1>
         <nav>
             <ul>
-                <li><a href="#home">首页</a></li>
-                <li><a href="#basics">基础学习</a></li>
-                <li><a href="#vocabulary">词汇</a></li>
-                <li><a href="#grammar">语法</a></li>
-                <li><a href="#exercises">练习</a></li>
-                <li><a href="#resources">资源</a></li>
-                <li><a href="#community">社区</a></li>
-                <li><a href="#about">关于我们</a></li>
+                <li><a href="index.html">首页</a></li>
+                <li><a href="grammar-overview.html">语法库</a></li>
+                <li><a href="french-roots.html">词根学习</a></li>
+                <li><a href="pronunciation-details.html">发音规则</a></li>
             </ul>
         </nav>
-        <!-- 添加暗黑模式切换按钮 -->
-        <button id="theme-toggle" aria-label="切换主题">
-            🌙
-        </button>
     </header>
 
     <main>
-        <section id="home">
-            <h2>开始你的法语学习之旅</h2>
-            <p>无论你是初学者还是进阶学习者，我们都有适合你的课程和资源。</p>
+        <section id="welcome">
+            <h2>欢迎来到法语学习网站</h2>
+            <p>这里提供全面的法语语法、词汇和发音学习资源，帮助你快速掌握法语。</p>
         </section>
 
-        <section id="basics">
-            <h2>基础学习</h2>
-            <div class="basics-grid">
-                <article class="basics-card">
-                    <h3><a href="alphabet.html">法语字母表及发音规则</a></h3>
-                    <p>学习法语字母表及其发音规则。</p>
-                </article>
-                <article class="basics-card">
-                    <h3><a href="greetings.html">基本问候语</a></h3>
-                    <p>掌握法语中的基本问候语。</p>
-                </article>
-                <article class="basics-card">
-                    <h3><a href="daily-expressions.html">日常用语</a></h3>
-                    <p>学习常用的法语日常用语。</p>
-                </article>
-                <article class="basics-card">
-                    <h3><a href="basic-grammar.html">基本语法结构</a></h3>
-                    <p>了解法语的基本语法结构。</p>
-                </article>
+        <section id="features">
+            <h2>主要功能</h2>
+            <div class="feature">
+                <h3>语法库</h3>
+                <p>详细讲解法语语法规则，包括时态、语态、句型等。</p>
+                <a href="grammar-overview.html">查看语法库</a>
             </div>
-        </section>
-
-        <section id="vocabulary">
-            <h2>词汇</h2>
-            <p>学习常用词汇，提升你的法语表达能力。</p>
-            <div class="vocab-links">
-                <h3><a href="high-frequency-words.html">高频单词学习</a></h3>
-                <p>学习法语中的高频单词，如数字、颜色、时间等。</p>
+            <div class="feature">
+                <h3>词根学习</h3>
+                <p>通过词根学习法，快速扩展法语词汇量。</p>
+                <a href="french-roots.html">查看词根学习</a>
             </div>
-            <div class="vocab-links">
-                <h3><a href="thematic-vocabulary.html">主题词汇分类</a></h3>
-                <p>学习法语中的主题词汇，如食物、家庭、职业等。</p>
-            </div>
-            <div class="dictionary-embed">
-                <h3>在线法语词典</h3>
-                <a href="https://www.frdic.com/" target="_blank" class="dictionary-link">打开 法语助手</a>
-            </div>
-            <div class="vocab-list">
-                <h3>今日词汇</h3>
-                <ul id="daily-vocab"></ul>
-            </div>
-            <div class="vocab-list">
-                <h3>今日法国</h3>
-                <p><a href="today-vocab.html">查看最新的法国新闻</a></p>
-            </div>
-            <div class="vocab-list">
-                <h3>法语词根学习</h3>
-                <p><a href="french-roots.html">点击进入法语词根学习</a></p>
-            </div>
-        </section>
-
-        <section id="grammar">
-            <h2>语法</h2>
-            <p>掌握法语语法规则，让你的表达更加准确。</p>
-            <div class="grammar-categories">
-                <h3>语法分类</h3>
-                <ul>
-                    <li><a href="#verb-conjugation">动词变位</a></li>
-                    <li><a href="#tenses">时态</a></li>
-                    <li><a href="#sentence-structure">句型</a></li>
-                </ul>
-                <div class="grammar-overview">
-                    <h3>语法库总览</h3>
-                    <p><a href="grammar-overview.html">点击查看语法库总览</a></p>
-                </div>
-            </div>
-            <div class="grammar-examples">
-                <h3>语法示例</h3>
-                <div id="verb-conjugation">
-                    <h4>动词变位：Être (是)</h4>
-                    <ul>
-                        <li>Je suis</li>
-                        <li>Tu es</li>
-                        <li>Il/Elle est</li>
-                    </ul>
-                </div>
-                <div id="tenses">
-                    <h4>时态：现在时</h4>
-                    <p>示例：Je mange une pomme. (我正在吃一个苹果。)</p>
-                </div>
-                <div id="sentence-structure">
-                    <h4>句型：主语 + 动词 + 宾语</h4>
-                    <p>示例：J'aime le français. (我喜欢法语。)</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="exercises">
-            <h2>练习</h2>
-            <p>通过听力、阅读、写作和口语练习，巩固你的法语技能。</p>
-            <div class="exercise-types">
-                <h3>练习类型</h3>
-                <ul>
-                    <li>听力练习</li>
-                    <li>阅读练习</li>
-                    <li>写作练习</li>
-                </ul>
-            </div>
-        </section>
-
-        <section id="resources">
-            <h2>资源</h2>
-            <p>推荐书籍、在线词典和学习应用，帮助你更好地学习法语。</p>
-            <div class="resource-list">
-                <h3>推荐资源</h3>
-                <ul>
-                    <li><a href="https://www.larousse.fr/" target="_blank">Larousse 词典</a></li>
-                    <li><a href="https://www.duolingo.com/" target="_blank">Duolingo</a></li>
-                </ul>
-            </div>
-        </section>
-
-        <section id="community">
-            <h2>社区</h2>
-            <p>加入我们的论坛，与其他学习者交流，找到语言交换伙伴。</p>
-            <div class="community-links">
-                <h3>社区链接</h3>
-                <ul>
-                    <li><a href="#forum">论坛</a></li>
-                    <li><a href="#language-exchange">语言交换</a></li>
-                </ul>
+            <div class="feature">
+                <h3>发音规则</h3>
+                <p>掌握法语发音规则，提高口语表达能力。</p>
+                <a href="pronunciation-details.html">查看发音规则</a>
             </div>
         </section>
 
@@ -194,12 +76,10 @@
                 <p>Email: xixiaoyuzi@gmail.com</p>
             </div>
         </section>
-
-        <a href="pages/test.html">测试链接</a>
     </main>
 
     <footer>
-        <p>法语学习网站</p>
+        <p>&copy; 2023 法语学习网站</p>
     </footer>
     <!-- 将脚本移到页面底部并使用 defer -->
     <script src="script.js" defer></script>
