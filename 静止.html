@@ -5,6 +5,250 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>静止</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(120deg, #f8f9fa, #eceff1, #cfd8dc);
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            animation: gradientBG 15s ease infinite;
+            background-size: 400% 400%;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50% }
+            50% { background-position: 100% 50% }
+            100% { background-position: 0% 50% }
+        }
+
+        header {
+            background: linear-gradient(135deg, #455a64, #37474f);
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '⚓';
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            font-size: 80px;
+            opacity: 0.1;
+            animation: anchorFloat 6s ease-in-out infinite;
+        }
+
+        @keyframes anchorFloat {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0); }
+        }
+
+        .static-section {
+            background: rgba(255,255,255,0.9);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+            border-left: 5px solid #455a64;
+            animation: slideIn 0.5s ease-out;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .static-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .example-box {
+            background: rgba(69, 90, 100, 0.05);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border: 1px solid rgba(69, 90, 100, 0.2);
+            position: relative;
+            padding-left: 40px;
+            transition: all 0.3s ease;
+        }
+
+        .example-box::before {
+            content: '🌊';
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            animation: wave 3s ease-in-out infinite;
+        }
+
+        @keyframes wave {
+            0%, 100% { transform: translateY(-50%) rotate(0deg); }
+            50% { transform: translateY(-50%) rotate(10deg); }
+        }
+
+        h2, h3 {
+            color: #455a64;
+            border-bottom: 2px solid #37474f;
+            padding-bottom: 10px;
+            margin-top: 25px;
+            position: relative;
+            display: inline-block;
+            padding: 0.5em 1em;
+            background: linear-gradient(135deg, rgba(69, 90, 100, 0.1), transparent);
+            border-radius: 8px;
+        }
+
+        h2::after, h3::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(to right, #455a64, #37474f);
+            animation: expandWidth 1s ease forwards;
+        }
+
+        @keyframes expandWidth {
+            to { width: 100%; }
+        }
+
+        .note-box {
+            background: rgba(69, 90, 100, 0.05);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border: 1px solid rgba(69, 90, 100, 0.2);
+            position: relative;
+            padding-left: 40px;
+            transform: translateX(0);
+            transition: all 0.3s ease;
+        }
+
+        .note-box:hover {
+            transform: scale(1.02);
+            background: rgba(69, 90, 100, 0.08);
+        }
+
+        .note-box::before {
+            content: '📌';
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            animation: pinPulse 2s infinite;
+        }
+
+        @keyframes pinPulse {
+            0%, 100% { transform: translateY(-50%) scale(1); }
+            50% { transform: translateY(-50%) scale(1.2); }
+        }
+
+        /* 添加滚动进度条 */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(to right, #455a64, #78909c);
+            transform-origin: 0 50%;
+            transform: scaleX(var(--scroll-percent, 0));
+            z-index: 1000;
+            transition: transform 0.1s ease-out;
+        }
+
+        /* 导航链接动画 */
+        nav ul li a {
+            position: relative;
+            color: white;
+            text-decoration: none;
+            padding: 5px 10px;
+            transition: all 0.3s ease;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: white;
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.3s ease;
+        }
+
+        nav ul li a:hover::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        /* 代码块样式 */
+        pre {
+            background: rgba(69, 90, 100, 0.05);
+            padding: 20px;
+            border-radius: 10px;
+            overflow-x: auto;
+            border: 1px solid rgba(69, 90, 100, 0.2);
+            position: relative;
+            margin: 20px 0;
+            transition: all 0.3s ease;
+        }
+
+        pre:hover {
+            transform: translateX(10px);
+            background: rgba(69, 90, 100, 0.08);
+        }
+
+        /* 强调文本动画 */
+        em {
+            font-style: italic;
+            color: #455a64;
+            position: relative;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        em:hover {
+            transform: scale(1.1);
+            text-shadow: 2px 2px 4px rgba(69, 90, 100, 0.2);
+        }
+
+        footer {
+            background: linear-gradient(135deg, #455a64, #37474f);
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        footer::after {
+            content: '⚓';
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 24px;
+            animation: anchorSway 4s infinite ease-in-out;
+        }
+
+        @keyframes anchorSway {
+            0%, 100% { transform: translateY(-50%) rotate(-10deg); }
+            50% { transform: translateY(-50%) rotate(10deg); }
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -33,5 +277,29 @@
     <footer>
         <p>&copy; 2023 法语学习网站</p>
     </footer>
+
+    <script>
+        // 添加滚动进度条
+        window.addEventListener('scroll', () => {
+            const percent = (window.scrollY) / (document.documentElement.scrollHeight - window.innerHeight);
+            document.body.style.setProperty('--scroll-percent', percent);
+        });
+
+        // 添加渐入动画
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        document.querySelectorAll('.static-section').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
 </body>
 </html> 

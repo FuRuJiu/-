@@ -3,8 +3,192 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>简单过去时1</title>
+    <title>简单过去时（第一部分）</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(120deg, #f8f9fa, #e3f2fd, #bbdefb);
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            animation: gradientBG 15s ease infinite;
+            background-size: 400% 400%;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50% }
+            50% { background-position: 100% 50% }
+            100% { background-position: 0% 50% }
+        }
+
+        header {
+            background: linear-gradient(135deg, #1976d2, #1565c0);
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '📜';
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            font-size: 80px;
+            opacity: 0.1;
+            animation: scroll 6s ease-in-out infinite;
+        }
+
+        @keyframes scroll {
+            0% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(10deg); }
+            100% { transform: translateY(0) rotate(0deg); }
+        }
+
+        .past-section {
+            background: rgba(255,255,255,0.9);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+            border-left: 5px solid #1976d2;
+            animation: slideIn 0.5s ease-out;
+        }
+
+        .example-box {
+            background: rgba(25, 118, 210, 0.05);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border: 1px solid rgba(25, 118, 210, 0.2);
+            position: relative;
+            padding-left: 40px;
+            transform-origin: left;
+            transition: all 0.3s ease;
+        }
+
+        .example-box:hover {
+            transform: scale(1.02);
+            background: rgba(25, 118, 210, 0.08);
+        }
+
+        .example-box::before {
+            content: '⏳';
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            animation: timeFlow 4s infinite;
+        }
+
+        @keyframes timeFlow {
+            0% { transform: translateY(-50%) rotate(0deg); }
+            50% { transform: translateY(-50%) rotate(180deg); }
+            100% { transform: translateY(-50%) rotate(360deg); }
+        }
+
+        .conjugation-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .conjugation-table th, .conjugation-table td {
+            padding: 12px;
+            border: 1px solid rgba(25, 118, 210, 0.2);
+            text-align: left;
+            transition: all 0.3s ease;
+        }
+
+        .conjugation-table th {
+            background: rgba(25, 118, 210, 0.1);
+            color: #1976d2;
+        }
+
+        .conjugation-table tr:hover td {
+            background: rgba(25, 118, 210, 0.05);
+            transform: translateX(5px);
+        }
+
+        h2, h3 {
+            color: #1976d2;
+            border-bottom: 2px solid #1565c0;
+            padding-bottom: 10px;
+            margin-top: 25px;
+            position: relative;
+        }
+
+        h2::after, h3::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(to right, #1976d2, #1565c0);
+            animation: expandWidth 1s ease forwards;
+        }
+
+        @keyframes expandWidth {
+            to { width: 100%; }
+        }
+
+        .note-box {
+            background: rgba(25, 118, 210, 0.05);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border: 1px solid rgba(25, 118, 210, 0.2);
+            position: relative;
+            padding-left: 40px;
+        }
+
+        .note-box::before {
+            content: '📖';
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            animation: bookOpen 3s infinite;
+        }
+
+        @keyframes bookOpen {
+            0%, 100% { transform: translateY(-50%) rotateY(0deg); }
+            50% { transform: translateY(-50%) rotateY(180deg); }
+        }
+
+        footer {
+            background: linear-gradient(135deg, #1976d2, #1565c0);
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        footer::after {
+            content: '🕰️';
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 24px;
+            animation: clockTick 2s infinite linear;
+        }
+
+        @keyframes clockTick {
+            from { transform: translateY(-50%) rotate(0deg); }
+            to { transform: translateY(-50%) rotate(360deg); }
+        }
+    </style>
 </head>
 <body>
     <header>

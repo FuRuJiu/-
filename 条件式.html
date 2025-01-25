@@ -5,6 +5,242 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>条件式</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(120deg, #f8f9fa, #f3e5f5, #e1bee7);
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            animation: gradientBG 15s ease infinite;
+            background-size: 400% 400%;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50% }
+            50% { background-position: 100% 50% }
+            100% { background-position: 0% 50% }
+        }
+
+        header {
+            background: linear-gradient(135deg, #6a1b9a, #4a148c);
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '🎯';
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            font-size: 80px;
+            opacity: 0.1;
+            animation: targetFloat 6s ease-in-out infinite;
+        }
+
+        @keyframes targetFloat {
+            0% { transform: rotate(0deg) scale(1); }
+            50% { transform: rotate(180deg) scale(1.1); }
+            100% { transform: rotate(360deg) scale(1); }
+        }
+
+        .conditional-section {
+            background: rgba(255,255,255,0.9);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+            border-left: 5px solid #6a1b9a;
+            animation: slideIn 0.5s ease-out;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .example-box {
+            background: rgba(106, 27, 154, 0.05);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border: 1px solid rgba(106, 27, 154, 0.2);
+            position: relative;
+            padding-left: 40px;
+            transition: all 0.3s ease;
+        }
+
+        .example-box:hover {
+            transform: translateX(10px);
+            background: rgba(106, 27, 154, 0.08);
+        }
+
+        h2, h3 {
+            color: #6a1b9a;
+            border-bottom: 2px solid #4a148c;
+            padding-bottom: 10px;
+            margin-top: 25px;
+        }
+
+        ul, ol {
+            padding-left: 20px;
+        }
+
+        li {
+            margin: 10px 0;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        li::before {
+            content: '✦';
+            position: absolute;
+            left: 0;
+            color: #6a1b9a;
+            animation: sparkle 2s infinite;
+        }
+
+        @keyframes sparkle {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .note {
+            background: rgba(106, 27, 154, 0.1);
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 4px solid #6a1b9a;
+        }
+
+        footer {
+            background: linear-gradient(135deg, #6a1b9a, #4a148c);
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+
+        /* 特定页面的额外样式 */
+        .grammar-item {
+            position: relative;
+            overflow: hidden;
+            border-left: 4px solid #FF5722;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            background: rgba(255, 255, 255, 0.95);
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .grammar-item:hover {
+            transform: translateX(10px) scale(1.01);
+            box-shadow: 0 8px 25px rgba(255, 87, 34, 0.15);
+        }
+
+        .grammar-details {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* 动态装饰元素 */
+        .grammar-item::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 87, 34, 0.1), transparent 70%);
+            opacity: 0;
+            transform: scale(0.5);
+            transition: all 0.6s ease-out;
+        }
+
+        .grammar-item:hover::before {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* 标题样式 */
+        h3 {
+            color: #D84315;
+            font-size: 1.4em;
+            margin-bottom: 1em;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #FF5722, #FF8A65);
+            transition: width 0.4s ease;
+        }
+
+        .grammar-item:hover h3::after {
+            width: 100%;
+        }
+
+        /* 列表样式 */
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        ul li {
+            position: relative;
+            padding: 12px 0 12px 30px;
+            border-bottom: 1px dashed rgba(255, 87, 34, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        ul li::before {
+            content: '➤';
+            position: absolute;
+            left: 0;
+            color: #FF5722;
+            opacity: 0.6;
+            transform: translateX(0);
+            transition: all 0.3s ease;
+        }
+
+        ul li:hover {
+            padding-left: 35px;
+            color: #D84315;
+            background: linear-gradient(90deg, rgba(255, 87, 34, 0.05), transparent);
+        }
+
+        ul li:hover::before {
+            transform: translateX(5px);
+            opacity: 1;
+        }
+
+        /* 代码示例样式 */
+        .example-code {
+            background: rgba(255, 87, 34, 0.05);
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 3px solid #FF5722;
+            margin: 10px 0;
+            font-family: 'Consolas', monospace;
+            transition: all 0.3s ease;
+        }
+
+        .example-code:hover {
+            background: rgba(255, 87, 34, 0.1);
+            transform: translateX(5px);
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -18,16 +254,228 @@
     </header>
 
     <main>
-        <section>
-            <h2>条件式</h2>
-            <div class="grammar-details">
-                <p>此页面正在开发中，敬请期待！</p>
+        <div class="conditional-section">
+            <p>法语中的条件式（conditional）分为两种形式：表达一种假设、愿望或建议，表达过去的一种假设</p>
+
+            <h2>条件式一 (le conditionnel présent)</h2>
+            <p>是一个复合时态，用于表达一种假设、愿望或建议：</p>
+            <div class="example-box">
+                <p>比如，Si je gagnais à la loterie, j'achèterais une maison. （如果我中了彩票，我会买房子。）</p>
+                <p>另外，Je voudrais un café, s'il vous plaît. （我想要一杯咖啡，谢谢。）</p>
             </div>
-        </section>
+
+            <h3>愿望</h3>
+            <ul>
+                <li>je voudrais</li>
+                <li>j'aimerais</li>
+            </ul>
+
+            <h3>建议</h3>
+            <ul>
+                <li>in faudrait</li>
+                <li>tu devrais</li>
+                <li>il vaudrait mieux</li>
+            </ul>
+
+            <h3>请求</h3>
+            <ul>
+                <li>pourriez-vous</li>
+            </ul>
+
+            <h3>假设</h3>
+            <ul>
+                <li>现在可能正在发生</li>
+                <li>将来可能发生</li>
+            </ul>
+
+            <h2>条件式二 (le conditionnel passé)</h2>
+            <p>用于表达过去的一种假设：</p>
+            <div class="example-box">
+                <p>比如，Si j'avais su, j'aurais choisi une autre option. （如果我当时知道，我会选择另一种方案。）</p>
+                <p>另外，Je serais allé au cinéma, mais j'étais trop fatigué. （我本来想去看电影，但我太累了。）</p>
+            </div>
+
+            <p>这两种条件式都由一个助动词和一个动词的过去分词构成。条件式一的助动词是"avoir"或"être"，而条件式二的助动词是"avoir"或"être"的条件式一形式。这些形式都是不规则的，必须逐个学习。</p>
+
+            <h3>推测：一件事可能已经发生（还没有被证实）</h3>
+            <ul>
+                <li>ils se sesont séparés 已经分手了</li>
+                <li>ils se seraient séparés 可能分手了，但我不确定</li>
+            </ul>
+
+            <h3>后悔，遗憾，惋惜的语气（本应该却没有）</h3>
+            <div class="example-box">
+                j'aurais voulu aller te voir ,mais je suis tombé malade 我本来想看你的，可惜我寄了
+            </div>
+
+            <h2>条件式有时可以用来表达礼貌，尤其是用于请求或建议</h2>
+            <div class="example-box">
+                <p>Pourriez-vous m'aider, s'il vous plaît ? （您能帮帮我吗？）</p>
+                <p>Pourrait-on avoir l'addition, s'il vous plaît ? （我们可以结账吗？）</p>
+            </div>
+
+            <h2>条件式其他用法：</h2>
+
+            <h3>表示明确的猜测或推测：</h3>
+            <div class="example-box">
+                <p>Il serait temps de partir. （该走了。）</p>
+                <p>Elle aurait environ 35 ans. （她大约35岁左右。）</p>
+            </div>
+
+            <h3>用于虚拟子句中，表示虚拟的情况：</h3>
+            <div class="example-box">
+                Si j'avais le temps, je viendrais vous voir. （如果我有时间，我会来看你。）
+            </div>
+
+            <h3>句型"si ... que"中，表示"虽然...，但是..."的意思：</h3>
+            <div class="example-box">
+                Si beau que soit le paysage, je m'ennuie ici. （虽然风景很美，但是我在这里感到无聊。）
+            </div>
+
+            <div class="note">
+                值得一提的是，在口语中，条件式一有时会被省略，而直接使用"je voudrais"和"tu aimerais"等表达方式来表示愿望和请求。
+            </div>
+
+            <h2>条件式的变位规则：</h2>
+            <div class="note">
+                与直陈式的过去将来时变位相同<br>
+                简单将来时+未完成过去时词尾
+            </div>
+
+            <h3>针对一般动词的变位规则：</h3>
+            <p>对于一、二和三组动词，条件式的词尾为未来时（futur simple）的词尾，即：</p>
+            <ul>
+                <li>一组动词词尾为 -ais, -ais, -ait, -ions, -iez, -aient</li>
+                <li>二组动词词尾为 -ais, -ais, -ait, -ions, -iez, -aient</li>
+                <li>三组动词词尾为 -ais, -ais, -ait, -ions, -iez, -aient</li>
+            </ul>
+
+            <div class="example-box">
+                <p>例如，对于动词 "parler"（说），条件式的变位为：</p>
+                <ul>
+                    <li>je parlerais</li>
+                    <li>tu parlerais</li>
+                    <li>il/elle parlerait</li>
+                    <li>nous parlerions</li>
+                    <li>vous parleriez</li>
+                    <li>ils/elles parleraient</li>
+                </ul>
+            </div>
+
+            <h3>针对不规则动词的变位规则：</h3>
+            <p>一些常见的不规则动词在条件式中也有特殊的变位形式。以下是一些不规则动词的例子：</p>
+            <div class="example-box">
+                <ul>
+                    <li>être：je serais, tu serais, il/elle serait, nous serions, vous seriez, ils/elles seraient</li>
+                    <li>avoir：j'aurais, tu aurais, il/elle aurait, nous aurions, vous auriez, ils/elles auraient</li>
+                    <li>faire：je ferais, tu ferais, il/elle ferait, nous ferions, vous feriez, ils/elles feraient</li>
+                    <li>aller：j'irais, tu irais, il/elle irait, nous irions, vous iriez, ils/elles iraient</li>
+                    <li>pouvoir：je pourrais, tu pourrais, il/elle pourrait, nous pourrions, vous pourriez, ils/elles pourraient</li>
+                    <li>venir：je viendrais, tu viendrais, il/elle viendrait, nous viendrions, vous viendriez, ils/elles viendraient</li>
+                </ul>
+            </div>
+
+            <h2>si 主将从现</h2>
+            <ul>
+                <li>主句简单将来，从句是现在
+                    <div class="note">意义：针对以后的事情进行假设，可能的可能性大，是未来会发生的事情</div>
+                </li>
+                <li>主句条件式现在时，从句未完成过去
+                    <div class="note">
+                        意义1：假设将来，但结果的可能性小<br>
+                        意义2：假设现在（客观事实），与事实相反，纯假设，不可能发生，无法实现的事情<br>
+                        à ta place=si j'etais toi<br>
+                        sans 如果没有（sans elles "如果没有她们，那我于连可以逍遥富贵"）
+                    </div>
+                </li>
+                <li>主句是条件式过去式，从句是愈过去时
+                    <div class="note">意义：假设的是过去的事情，过去的事情有结果，另一种可能性，但无法实现，主打的是后悔</div>
+                </li>
+            </ul>
+
+            <div class="note">
+                可以理解为，从上到下，可能性从很大降低到没有，也就是一种个人能动性的变换
+            </div>
+
+            <h2>加条件式的连词</h2>
+            <ul>
+                <li>au cas où 万一</li>
+                <li>quand bien même 即使</li>
+            </ul>
+
+            <h2>si的其他用法</h2>
+            <ul>
+                <li>si...,c'est que... 之所以...是因为...</li>
+                <li>si+未完成 如果</li>
+                <li>si=quand 都是现在时</li>
+            </ul>
+        </div>
     </main>
 
     <footer>
         <p>&copy; 2023 法语学习网站</p>
     </footer>
+
+    <script>
+        // 添加滚动进度条和渐入动画
+        window.addEventListener('scroll', () => {
+            const percent = (window.scrollY) / (document.documentElement.scrollHeight - window.innerHeight);
+            document.body.style.setProperty('--scroll-percent', percent);
+        });
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        document.querySelectorAll('.conditional-section').forEach(section => {
+            observer.observe(section);
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // 添加滚动动画
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0) rotateX(0) rotateY(0)';
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            document.querySelectorAll('.grammar-item').forEach(item => {
+                item.style.opacity = '0';
+                item.style.transform = 'translateY(20px) rotateX(-5deg)';
+                item.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+                observer.observe(item);
+            });
+
+            // 添加鼠标跟随效果
+            document.addEventListener('mousemove', (e) => {
+                const items = document.querySelectorAll('.grammar-item');
+                const mouseX = e.clientX / window.innerWidth - 0.5;
+                const mouseY = e.clientY / window.innerHeight - 0.5;
+
+                items.forEach(item => {
+                    const rect = item.getBoundingClientRect();
+                    const itemX = (rect.left + rect.width / 2) / window.innerWidth - 0.5;
+                    const itemY = (rect.top + rect.height / 2) / window.innerHeight - 0.5;
+
+                    const rotateX = (mouseY - itemY) * 4;
+                    const rotateY = (mouseX - itemX) * 4;
+
+                    item.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+                });
+            });
+        });
+    </script>
 </body>
 </html> 

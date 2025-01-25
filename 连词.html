@@ -5,29 +5,368 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>连词</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(120deg, #f8f9fa, #f3e5f5, #e1bee7);
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            animation: gradientBG 15s ease infinite;
+            background-size: 400% 400%;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50% }
+            50% { background-position: 100% 50% }
+            100% { background-position: 0% 50% }
+        }
+
+        header {
+            background: linear-gradient(135deg, #9c27b0, #7b1fa2);
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '🔗';
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            font-size: 80px;
+            opacity: 0.1;
+            animation: chainFloat 6s ease-in-out infinite;
+        }
+
+        @keyframes chainFloat {
+            0% { transform: rotate(0deg) translateY(0); }
+            50% { transform: rotate(180deg) translateY(-10px); }
+            100% { transform: rotate(360deg) translateY(0); }
+        }
+
+        .conjunction-section {
+            background: rgba(255,255,255,0.9);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+            border-left: 5px solid #9c27b0;
+            animation: slideIn 0.5s ease-out;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .conjunction-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .example-box {
+            background: rgba(156, 39, 176, 0.05);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border: 1px solid rgba(156, 39, 176, 0.2);
+            position: relative;
+            padding-left: 40px;
+            transition: all 0.3s ease;
+        }
+
+        .example-box:hover {
+            transform: translateX(10px);
+            background: rgba(156, 39, 176, 0.08);
+        }
+
+        h2, h3 {
+            color: #9c27b0;
+            border-bottom: 2px solid #7b1fa2;
+            padding-bottom: 10px;
+            margin-top: 25px;
+            position: relative;
+            display: inline-block;
+            padding: 0.5em 1em;
+            background: linear-gradient(135deg, rgba(156, 39, 176, 0.1), transparent);
+            border-radius: 8px;
+        }
+
+        h2::after, h3::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(to right, #9c27b0, #7b1fa2);
+            animation: expandWidth 1s ease forwards;
+        }
+
+        @keyframes expandWidth {
+            to { width: 100%; }
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        li {
+            margin: 15px 0;
+            padding-left: 30px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        li::before {
+            content: '💫';
+            position: absolute;
+            left: 0;
+            animation: spin 4s linear infinite;
+        }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        li:hover {
+            transform: translateX(10px);
+            color: #9c27b0;
+        }
+
+        footer {
+            background: linear-gradient(135deg, #9c27b0, #7b1fa2);
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        footer::after {
+            content: '🔗';
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 24px;
+            animation: chainSpin 4s infinite linear;
+        }
+
+        @keyframes chainSpin {
+            from { transform: translateY(-50%) rotate(0deg); }
+            to { transform: translateY(-50%) rotate(360deg); }
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <h1>连词</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">返回首页</a></li>
-                <li><a href="grammar-overview.html">返回语法库总览</a></li>
-            </ul>
-        </nav>
-    </header>
+    <div class="container">
+        <header>
+            <h1>连词</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">返回首页</a></li>
+                    <li><a href="grammar-overview.html">返回语法库总览</a></li>
+                </ul>
+            </nav>
+        </header>
+        
+        <main>
+            <div class="section-content">
+                <div class="conjunction-section">
+                    <h2>常用连词</h2>
+                    <ul>
+                        <li>1. et - 和，及，与，而且</li>
+                        <li>2. que - 引出主语从句、表语从句、宾语从句、补语从句、同位语从句等</li>
+                        <li>3. mais - 可是，但是，然而</li>
+                        <li>4. comme - 好像，如同，犹如</li>
+                        <li>5. ou - 即，就是；或者</li>
+                        <li>6. si - 是否，如果，如此</li>
+                        <li>7. aussi - 和···一样</li>
+                        <li>8. quand - 什么时候</li>
+                        <li>9. donc - 因此，所以，故</li>
+                        <li>10. soit - 即，就是，等于说</li>
+                        <li>11. car - 因为</li>
+                        <li>12. pourquoi - 为什么</li>
+                        <li>13. ni - 也不[和表示否定的词、词组连用]</li>
+                        <li>14. comment - 如何</li>
+                        <li>15. lorsque - 当…时；在…情况下</li>
+                        <li>16. or - 不过，然而</li>
+                        <li>17. cependant - 在...时，在...期间</li>
+                        <li>18. puisque - 既然，因为</li>
+                        <li>19. toutefois - 尽管如此，不过，然而，可是</li>
+                        <li>20. combien - 多少</li>
+                        <li>21. sinon - 除了，否则，不然的话</li>
+                        <li>22. néanmoins - 然而，不过，尽管如此，虽然如此</li>
+                        <li>23. quoique - 尽管，虽然</li>
+                    </ul>
+                </div>
 
-    <main>
-        <section>
-            <h2>连词</h2>
-            <div class="grammar-details">
-                <p>此页面正在开发中，敬请期待！</p>
+                <div class="conjunction-section">
+                    <h2>常见意义连接词</h2>
+                    
+                    <h3>发表观点："依我所见"</h3>
+                    <div class="example-box">Pour ma part/à mon avis/j'estime que...</div>
+
+                    <h3>排序</h3>
+                    <ul>
+                        <li>Avant tout</li>
+                        <li>En premier lieu/d'abord/premièrement/...</li>
+                        <li>Ensuite/deuxièmement...</li>
+                        <li>D'une part... D'une autre part...</li>
+                        <li>Enfin</li>
+                    </ul>
+
+                    <h3>并列："同样地"</h3>
+                    <ul>
+                        <li>Aussi/également/de même</li>
+                        <li class="example-box">Les japonais aiment la culture française. Également, les français aiment la culture japonaise.</li>
+                    </ul>
+
+                    <!-- 继续添加其他连接词分类... -->
+                </div>
+
+                <div class="conjunction-section">
+                    <h2>添加："另外"</h2>
+                    <ul>
+                        <li>d'ailleurs/de plus/en outre</li>
+                    </ul>
+
+                    <h3>递进</h3>
+                    <ul>
+                        <li>En plus</li>
+                        <li>Non seulement, mais également...</li>
+                    </ul>
+
+                    <h3>转折："但是"</h3>
+                    <ul>
+                        <li>or/pourtant/cependant/toutefois/néanmoins</li>
+                    </ul>
+
+                    <h3>"与此相反"</h3>
+                    <ul>
+                        <li>au contraire/contrairement à/en revanche</li>
+                    </ul>
+
+                    <h3>"与此不同"</h3>
+                    <ul>
+                        <li>alors que/tandis que</li>
+                    </ul>
+
+                    <h3>"即使"</h3>
+                    <ul>
+                        <li>même si/malgré/malgré tout</li>
+                    </ul>
+
+                    <h3>解释："也就是说"</h3>
+                    <ul>
+                        <li>C'est-à-dire/soit/en d'autres termes/autrement dit</li>
+                    </ul>
+
+                    <h3>"举个例子"</h3>
+                    <ul>
+                        <li>par exemple</li>
+                    </ul>
+
+                    <h3>"实际上"/"确实"</h3>
+                    <ul>
+                        <li>en effet/effectivement</li>
+                    </ul>
+
+                    <h3>原因："因为"</h3>
+                    <ul>
+                        <li>parce que/car（句中）/comme（句首）/à cause de</li>
+                        <li>Étant donné que／vue que / du fait que</li>
+                        <li>En raison de</li>
+                    </ul>
+
+                    <h3>"多亏了"</h3>
+                    <ul>
+                        <li>grâce à</li>
+                    </ul>
+
+                    <h3>"既然……（那么）"</h3>
+                    <ul>
+                        <li>puisque/étant donné que/vu que</li>
+                    </ul>
+
+                    <h3>结果："所以"</h3>
+                    <ul>
+                        <li>donc/ainsi</li>
+                        <li>par conséquent</li>
+                        <li>c'est pourquoi/c'est la raison pour laquelle</li>
+                    </ul>
+
+                    <h3>目的："为了"</h3>
+                    <ul>
+                        <li>pour + 名词/动词不定式</li>
+                        <li>dans le but de/afin de + 不定式 （也就是说没有主语；主语随主句）</li>
+                        <li>pour que/afin que + 虚拟式 （也就是说有主语；主句和从句主语一般不一致，否则显累赘）</li>
+                    </ul>
+
+                    <h3>条件："如果……的话"</h3>
+                    <ul>
+                        <li>si</li>
+                    </ul>
+
+                    <h3>"万一"</h3>
+                    <ul>
+                        <li>au cas où + 条件式</li>
+                    </ul>
+
+                    <h3>"只要"</h3>
+                    <ul>
+                        <li>à condition que +虚拟式</li>
+                    </ul>
+
+                    <h3>结论："总之"</h3>
+                    <ul>
+                        <li>bref/en conclusion/pour conclure/en résumé/en somme</li>
+                    </ul>
+                </div>
             </div>
-        </section>
-    </main>
+        </main>
+    </div>
 
     <footer>
         <p>&copy; 2023 法语学习网站</p>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // 滚动动画
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            });
+
+            document.querySelectorAll('.grammar-item, .section-content').forEach(item => {
+                observer.observe(item);
+            });
+
+            // 进度条
+            const progressBar = document.createElement('div');
+            progressBar.className = 'progress-bar';
+            document.body.appendChild(progressBar);
+
+            window.addEventListener('scroll', () => {
+                const scrolled = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+                progressBar.style.width = `${scrolled}%`;
+            });
+        });
+    </script>
 </body>
 </html> 

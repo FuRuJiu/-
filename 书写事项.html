@@ -7,55 +7,97 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <h1>书写事项</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">返回首页</a></li>
-                <li><a href="grammar-overview.html">返回语法库总览</a></li>
-            </ul>
-        </nav>
-    </header>
+    <div class="container">
+        <header>
+            <h1>书写事项</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">返回首页</a></li>
+                    <li><a href="grammar-overview.html">返回语法库总览</a></li>
+                </ul>
+            </nav>
+        </header>
+        
+        <main>
+            <div class="section-content">
+                <div class="grammar-item">
+                    <h2>标点符号</h2>
+                    <div class="grammar-details">
+                        <h3>基本标点规则</h3>
+                        <ul>
+                            <li>句号 (.) - 用于结束陈述句</li>
+                            <li>问号 (?) - 用于疑问句</li>
+                            <li>感叹号 (!) - 用于感叹句</li>
+                            <li>逗号 (,) - 用于分隔句子成分</li>
+                            <li>分号 (;) - 用于连接相关的独立分句</li>
+                            <li>冒号 (:) - 用于引出解释或列举</li>
+                        </ul>
+                    </div>
+                </div>
 
-    <main>
-        <section>
-            <h2>书写事项</h2>
-            <div class="grammar-details">
-                <h3>字母的大小写</h3>
-                <p>法语中的字母有大小写之分。大写字母用于句子的开头，人名、地名、国家名等专有名词，以及一些缩写词。小写字母则用于其他情况。</p>
+                <div class="grammar-item">
+                    <h2>大小写规则</h2>
+                    <div class="grammar-details">
+                        <h3>需要大写的情况</h3>
+                        <ul>
+                            <li>句子开头</li>
+                            <li>专有名词</li>
+                            <li>国家和地区名称</li>
+                            <li>语言名称</li>
+                            <li>节日名称</li>
+                        </ul>
+                    </div>
+                </div>
 
-                <h3>重音符号</h3>
-                <p>在法语单词中，有些字母带有重音符号。这些符号对于正确的发音和拼写至关重要。常见的重音符号有：é、è、à、ù、â、ê、î、ô、û。</p>
-
-                <h3>连字号</h3>
-                <p>在法语中，连字号（tiret）用于连接数字，如电话号码（例如：01-23-45-67-89）。它也可以用于连接词语或短语，以便在排版时换行。</p>
-
-                <h3>单词的词尾和词缀</h3>
-                <p>法语中的单词通常由词干和词缀组成。一些常见的词缀包括：re-（再次）、il-（不）、ex-（出去）、in-（进入）、anti-（反对）等。</p>
-
-                <h3>标点符号</h3>
-                <p>在法语中，标点符号很重要，可以影响到句子的意思和结构，因此需要谨慎使用。常见的标点符号有：句号、问号、感叹号、逗号、分号、冒号等。</p>
-
-                <h3>动词时态和语态</h3>
-                <p>在书写法语的时候，需要正确使用动词的时态和语态，以表达正确的意思。例如，需要区分一般过去时和现在完成时，以及主动语态和被动语态。</p>
-
-                <h3>避免拼写错误</h3>
-                <p>在书写法语时，应避免拼写错误。例如，注意不同单词的拼写和发音，如"êtes"（你们是）和"êtes"（你们有）之间的区别。同时，也要注意单词间的空格和连字符的使用，以及不规则动词形式的拼写。</p>
-
-                <h3>缩略语</h3>
-                <p>在法语中，一些常见的词语可以使用缩略形式，如"Mr."代替"Monsieur"，"Mme"代替"Madame"，"etc."代替"et cetera"等。在书写时，应注意正确使用合适的缩略形式。</p>
-
-                <h3>引用和脚注</h3>
-                <p>在写作和学术研究中，引用和脚注是必要的组成部分。在法语中，一些常用的引用格式和脚注格式可以参考国际通用的格式，例如MLA和APA等。</p>
-
-                <h3>书写风格</h3>
-                <p>在书写法文文本时，需要注意使用正确的书写风格。不同的文本类型可能需要不同的书写方式，例如，商务信函、学术论文和小说等。在书写时要注意遵循正确的格式和结构。</p>
+                <div class="grammar-item">
+                    <h2>特殊符号</h2>
+                    <div class="grammar-details">
+                        <h3>常用特殊符号</h3>
+                        <ul>
+                            <li>重音符号 (é, è, ê)</li>
+                            <li>分音符号 (ë, ï)</li>
+                            <li>连字符 (-)</li>
+                            <li>撇号 (')</li>
+                            <li>引号 (« »)</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-        </section>
-    </main>
+        </main>
+    </div>
 
     <footer>
         <p>&copy; 2023 法语学习网站</p>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // 滚动动画
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            });
+
+            document.querySelectorAll('.grammar-item, .section-content').forEach(item => {
+                observer.observe(item);
+            });
+
+            // 进度条
+            const progressBar = document.createElement('div');
+            progressBar.className = 'progress-bar';
+            document.body.appendChild(progressBar);
+
+            window.addEventListener('scroll', () => {
+                const scrolled = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+                progressBar.style.width = `${scrolled}%`;
+            });
+        });
+    </script>
 </body>
 </html> 

@@ -5,6 +5,290 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>介词</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(120deg, #f8f9fa, #e8f5e9, #c8e6c9);
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            animation: gradientBG 15s ease infinite;
+            background-size: 400% 400%;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50% }
+            50% { background-position: 100% 50% }
+            100% { background-position: 0% 50% }
+        }
+
+        header {
+            background: linear-gradient(135deg, #2e7d32, #1b5e20);
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '🔗';
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            font-size: 80px;
+            opacity: 0.1;
+            animation: linkFloat 6s ease-in-out infinite;
+        }
+
+        @keyframes linkFloat {
+            0% { transform: rotate(0deg) translateY(0); }
+            50% { transform: rotate(180deg) translateY(-10px); }
+            100% { transform: rotate(360deg) translateY(0); }
+        }
+
+        .preposition-section {
+            background: rgba(255,255,255,0.9);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+            border-left: 5px solid #2e7d32;
+            animation: slideIn 0.5s ease-out;
+            transform: translateY(20px);
+            opacity: 0;
+            animation: sectionFadeIn 0.8s ease-out forwards;
+        }
+
+        @keyframes sectionFadeIn {
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .example-box {
+            background: rgba(46, 125, 50, 0.03);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(46, 125, 50, 0.15);
+            box-shadow: 0 2px 8px rgba(46, 125, 50, 0.05);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            position: relative;
+            padding-left: 40px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .example-box:hover {
+            transform: translateX(10px) translateY(-2px);
+            background: rgba(46, 125, 50, 0.08);
+            box-shadow: 0 4px 12px rgba(46, 125, 50, 0.1);
+        }
+
+        .example-box::before {
+            content: '🌿';
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            animation: sway 3s ease-in-out infinite;
+        }
+
+        @keyframes sway {
+            0%, 100% { transform: translateY(-50%) rotate(-10deg); }
+            50% { transform: translateY(-50%) rotate(10deg); }
+        }
+
+        h2, h3 {
+            color: #2e7d32;
+            border-bottom: 2px solid #1b5e20;
+            padding-bottom: 10px;
+            margin-top: 25px;
+            position: relative;
+            display: inline-block;
+            padding: 0.5em 1em;
+            background: linear-gradient(135deg, rgba(46, 125, 50, 0.1), transparent);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        h2:hover, h3:hover {
+            transform: scale(1.02);
+            background: linear-gradient(135deg, rgba(46, 125, 50, 0.15), transparent);
+        }
+
+        h2::after, h3::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(to right, #2e7d32, #1b5e20);
+            animation: expandWidth 1s ease forwards;
+        }
+
+        @keyframes expandWidth {
+            to { width: 100%; }
+        }
+
+        ul, ol {
+            padding-left: 20px;
+        }
+
+        li {
+            margin: 10px 0;
+            position: relative;
+            padding-left: 25px;
+            transition: all 0.3s ease;
+        }
+
+        li::before {
+            content: '🍃';
+            position: absolute;
+            left: 0;
+            animation: leafSway 2s infinite ease-in-out;
+            transition: all 0.3s ease;
+        }
+
+        li:hover {
+            transform: translateX(5px);
+            color: #1b5e20;
+        }
+
+        li:hover::before {
+            transform: rotate(15deg) scale(1.2);
+        }
+
+        em {
+            font-style: italic;
+            color: #2e7d32;
+            padding: 0 3px;
+        }
+
+        footer {
+            background: linear-gradient(135deg, #2e7d32, #1b5e20);
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        footer::after {
+            content: '🌱';
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 24px;
+            animation: grow 4s infinite ease-in-out;
+        }
+
+        @keyframes grow {
+            0%, 100% { transform: translateY(-50%) scale(1); }
+            50% { transform: translateY(-50%) scale(1.2); }
+        }
+
+        /* 添加滚动显示动画 */
+        @keyframes slideInFromBottom {
+            from {
+                transform: translateY(30px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .preposition-section > * {
+            animation: slideInFromBottom 0.5s ease-out forwards;
+            opacity: 0;
+        }
+
+        .preposition-section > *:nth-child(1) { animation-delay: 0.1s; }
+        .preposition-section > *:nth-child(2) { animation-delay: 0.2s; }
+        .preposition-section > *:nth-child(3) { animation-delay: 0.3s; }
+
+        /* 为法语示例添加特殊样式 */
+        .example-box em {
+            color: #2e7d32;
+            font-style: italic;
+            position: relative;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        .example-box em:hover {
+            transform: scale(1.1);
+            text-shadow: 2px 2px 4px rgba(46, 125, 50, 0.2);
+        }
+
+        /* 添加页面滚动进度条 */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(to right, #2e7d32, #66bb6a);
+            transform-origin: 0 50%;
+            transform: scaleX(var(--scroll-percent, 0));
+            z-index: 1000;
+            transition: transform 0.1s ease-out;
+        }
+
+        /* 为导航添加动态效果 */
+        nav ul li a {
+            position: relative;
+            color: white;
+            text-decoration: none;
+            padding: 5px 10px;
+            transition: all 0.3s ease;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: white;
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.3s ease;
+        }
+
+        nav ul li a:hover::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        /* 添加卡片阴影效果 */
+        .preposition-section {
+            box-shadow: 
+                0 2px 4px rgba(46, 125, 50, 0.1),
+                0 4px 8px rgba(46, 125, 50, 0.05),
+                0 8px 16px rgba(46, 125, 50, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .preposition-section:hover {
+            box-shadow: 
+                0 4px 8px rgba(46, 125, 50, 0.15),
+                0 8px 16px rgba(46, 125, 50, 0.1),
+                0 16px 32px rgba(46, 125, 50, 0.1);
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -18,16 +302,149 @@
     </header>
 
     <main>
-        <section>
-            <h2>介词</h2>
-            <div class="grammar-details">
-                <p>此页面正在开发中，敬请期待！</p>
+        <div class="preposition-section">
+            <h2>à</h2>
+            <h3>引导状语</h3>
+            <ul>
+                <li>地点
+                    <div class="example-box">Mon grand-père va à Paris avec nous</div>
+                </li>
+                <li>时间
+                    <div class="example-box">Alors,on se donne rendez-vous à deux heures de l'après-midi</div>
+                </li>
+                <li>结果或目的
+                    <div class="example-box">l'enfant invente des raisons à ne pas aller à l'école</div>
+                </li>
+                <li>价格或数量
+                    <div class="example-box">Ces pommes sont à cinq euros le kilo</div>
+                </li>
+                <li>方式，方法或工具状语
+                    <div class="example-box">Tous les jours,il va au travail à bicyclette</div>
+                </li>
+            </ul>
+
+            <h3>引导名词补语</h3>
+            <div class="example-box">Hier,j'ai cheté trois tasses à thé</div>
+
+            <h3>引导宾语</h3>
+            <ul>
+                <li>直接
+                    <div class="example-box">Ils aiment à lire les bandes dassinées</div>
+                </li>
+                <li>间接
+                    <div class="example-box">Cette maison appartient à ma tante</div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="preposition-section">
+            <h2>de</h2>
+            <h3>表示"起点，来源"的概念</h3>
+            <div class="example-box">
+                <p>J'ai acheté du thé de Hangzhou</p>
+                <p>Nous sommes du même sang</p>
             </div>
-        </section>
+
+            <h3>表示"时间"概念</h3>
+            <div class="example-box">Les vacances scolaires vont de juillet à septembre</div>
+
+            <h3>表示"归属"概念</h3>
+            <div class="example-box">Ce matin j'ai visité la maison litteraire de Balzac</div>
+
+            <h3>表示方式，方法</h3>
+            <div class="example-box">Il a poussé la porte de coude</div>
+
+            <h3>表示原因</h3>
+            <div class="example-box">Paul pleure de joie</div>
+
+            <h3>表示"品质，性质"</h3>
+            <div class="example-box">j'ai envie d'avoir une maison de campagne</div>
+
+            <h3>表示"材质"</h3>
+            <div class="example-box">Quel beau lit de bois!</div>
+
+            <h3>表示分量，部分</h3>
+            <div class="example-box">Nous avons besoin de trois kilos de farine</div>
+
+            <h3>语法作用</h3>
+            <ul>
+                <li>引导间接及物动词的间接宾语
+                    <div class="example-box">Le thé chinois jouit d'une grande réputation</div>
+                </li>
+                <li>引导动词不定式
+                    <div class="example-box">Mon père me demande de partir tout de suit</div>
+                </li>
+                <li>引导动词宾语的表语
+                    <div class="example-box">On la traite de lache</div>
+                </li>
+                <li>引出名词或形容词的补语
+                    <div class="example-box">La philosophie est un art de penser</div>
+                </li>
+                <li>引导名词的同位语
+                    <div class="example-box">As-tu déjà visité la ville de paris</div>
+                </li>
+            </ul>
+
+            <h3>零散小点</h3>
+            <ul>
+                <li>复数形容词前的不定冠词des，一般改为de
+                    <div class="example-box">des beaux hommes (f)-------de beaux hommes</div>
+                </li>
+                <li>绝对否定：用于否定句中代替不定冠词或部分冠词
+                    <div class="example-box">Il n'y a pas de table</div>
+                </li>
+                <li>de表示分量，后面的名词不用冠词
+                    <div class="example-box">une tasse de café</div>
+                </li>
+                <li>plus de 后接基数词时，相当于英语的more than
+                    <div class="example-box">Il habite à plus de deux kiloètres de la gare</div>
+                </li>
+                <li>介词组合"de......à"表示一个被限定的范围
+                    <div class="example-box">Pandant la soirée,il restait au coin du début à la fin</div>
+                </li>
+                <li>de与en连用，可以表示渐进或者递增
+                    <div class="example-box">de porte en porte ,de jour en jour</div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="preposition-section">
+            <h2>表示方位的介词</h2>
+            <ul>
+                <li>Dans - 在...之中、在...里面</li>
+                <li>Sur - 在...上面</li>
+                <li>Sous - 在...下面</li>
+                <!-- 继续添加其他方位介词... -->
+            </ul>
+        </div>
     </main>
 
     <footer>
         <p>&copy; 2023 法语学习网站</p>
     </footer>
+
+    <script>
+        // 添加滚动进度条
+        window.addEventListener('scroll', () => {
+            const percent = (window.scrollY) / (document.documentElement.scrollHeight - window.innerHeight);
+            document.body.style.setProperty('--scroll-percent', percent);
+        });
+
+        // 添加渐入动画
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        document.querySelectorAll('.preposition-section').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
 </body>
 </html> 

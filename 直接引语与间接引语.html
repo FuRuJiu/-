@@ -5,6 +5,126 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>直接引语与间接引语</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(120deg, #f8f9fa, #e8f5e9, #c8e6c9);
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            animation: gradientBG 15s ease infinite;
+            background-size: 400% 400%;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50% }
+            50% { background-position: 100% 50% }
+            100% { background-position: 0% 50% }
+        }
+
+        header {
+            background: linear-gradient(135deg, #2e7d32, #1b5e20);
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '💬';
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            font-size: 80px;
+            opacity: 0.1;
+            animation: speechFloat 6s ease-in-out infinite;
+        }
+
+        @keyframes speechFloat {
+            0% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(5deg); }
+            100% { transform: translateY(0) rotate(0deg); }
+        }
+
+        .speech-section {
+            background: rgba(255,255,255,0.9);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+            border-left: 5px solid #2e7d32;
+            animation: slideIn 0.5s ease-out;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .example-box {
+            background: rgba(46, 125, 50, 0.05);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border: 1px solid rgba(46, 125, 50, 0.2);
+            position: relative;
+            padding-left: 40px;
+            transition: all 0.3s ease;
+        }
+
+        .example-box:hover {
+            transform: translateX(10px);
+            background: rgba(46, 125, 50, 0.08);
+        }
+
+        h2, h3 {
+            color: #2e7d32;
+            border-bottom: 2px solid #1b5e20;
+            padding-bottom: 10px;
+            margin-top: 25px;
+        }
+
+        ul, ol {
+            padding-left: 20px;
+        }
+
+        li {
+            margin: 10px 0;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        li::before {
+            content: '🗣';
+            position: absolute;
+            left: 0;
+            color: #2e7d32;
+            animation: speak 2s infinite;
+        }
+
+        @keyframes speak {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+
+        .note {
+            background: rgba(46, 125, 50, 0.1);
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 4px solid #2e7d32;
+        }
+
+        footer {
+            background: linear-gradient(135deg, #2e7d32, #1b5e20);
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -18,16 +138,182 @@
     </header>
 
     <main>
-        <section>
-            <h2>直接引语与间接引语</h2>
-            <div class="grammar-details">
-                <p>此页面正在开发中，敬请期待！</p>
+        <div class="speech-section">
+            <p>直接引语和间接引语都是用来引述别人的话语或思想的方式，但它们有着不同的表达方式和语法结构。</p>
+
+            <div class="note">直接引语是指直接引述别人的话语或思想，通常使用引号将其括起来，直接表达别人的原话或原意</div>
+
+            <div class="example-box">
+                <p>Pierre a dit : "Je vais partir en vacances la semaine prochaine."（皮埃尔说："下周我要去度假。"）</p>
+                <p>"Je ne sais pas quoi faire," a dit Marie.（"我不知道该做什么，"玛丽说。）</p>
             </div>
-        </section>
+
+            <div class="note">间接引语则是将别人的话语或思想进行转述，以表达别人的原话或原意，通常不使用引号，而是使用一个连接词或一个动词不定式来引出</div>
+
+            <div class="example-box">
+                <p>Pierre a dit qu'il partirait en vacances la semaine prochaine.（皮埃尔说他下周要去度假。）</p>
+                <p>Marie a dit qu'elle ne savait pas quoi faire.（玛丽说她不知道该做什么。）</p>
+            </div>
+
+            <p>在间接引语中，动词一般使用 "que" 引导宾语从句，而根据原话的时态和语气的不同，动词的时态和人称也需要相应变化。例如：</p>
+
+            <div class="example-box">
+                <p>直接引语： "Je vais venir te voir demain," a dit mon ami.（"我明天会来看你，"我的朋友说。）</p>
+                <p>间接引语： Mon ami a dit qu'il viendrait me voir demain.（我的朋友说他明天会来看我。）</p>
+                <p>直接引语： "Je suis fatigué," a dit le professeur.（"我很累，"教授说。）</p>
+                <p>间接引语： Le professeur a dit qu'il était fatigué.（教授说他很累。）</p>
+            </div>
+
+            <h2>直接引语变成间接引语</h2>
+            <ul>
+                <li>陈述句+que</li>
+                <li>一般疑问句+si 是否
+                    <div class="note">si之后加陈述句</div>
+                </li>
+                <li>特殊疑问句
+                    <ul>
+                        <li>疑问词就是连词</li>
+                        <li>倒装只能是代词倒装</li>
+                        <li>疑问词可以加est-ce，然后主语不倒装。</li>
+                        <li>疑问词+陈述语序</li>
+                        <li>要注意上下文的人称，翻译问题</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <p>当将直接引语变为间接引语时，需要根据原话的时态、语气和句型来对转述的动词时态和人称进行相应的变化。</p>
+
+            <ol>
+                <li>疑问句的直接引语变为间接引语时，引导词为"si"或"est-ce que"，变为"si"或"est-ce que"引导的宾语从句，同时需要用"si"或"est-ce que"来引出原话的疑问意义。
+                    <div class="example-box">
+                        <p>直接引语： "Est-ce que tu as fini ton travail ?" a demandé Marie. （"你完成工作了吗？" 玛丽问道。）</p>
+                        <p>间接引语： Marie a demandé si j'avais fini mon travail. （玛丽问我是否完成了工作。）</p>
+                    </div>
+                </li>
+
+                <li>陈述句的直接引语变为间接引语时，引导词为"que"或"si"，变为"que"或"si"引导的宾语从句。
+                    <div class="example-box">
+                        <p>直接引语： "Je suis fatigué," a dit le professeur. （"我很累，"教授说。）</p>
+                        <p>间接引语： Le professeur a dit qu'il était fatigué.（教授说他很累。）</p>
+                    </div>
+                </li>
+
+                <li>特殊疑问句的直接引语变为间接引语时，引导词为"si"或"est-ce que"，变为"si"或"est-ce que"引导的宾语从句，并且需要保留原来的疑问词。
+                    <div class="example-box">
+                        <p>直接引语： "Où habites-tu ?" a demandé Pierre. （"你住在哪里？"皮埃尔问道。）</p>
+                        <p>间接引语： Pierre a demandé où j'habitais. （皮埃尔问我住在哪里。）</p>
+                    </div>
+                </li>
+            </ol>
+
+            <h2>时态转换问题</h2>
+            <div class="note">其实说人话的话，很简单，就是往前推一个时态</div>
+            <div class="note">推的内容是时态标志词，也就是动词变位，或是修饰用的动词所代表时态往前推一位</div>
+
+            <p>在直接引语与间接引语的转换中，涉及到时态的变化。一般来说，间接引语中的时态会随着引述的内容而变化，因此需要注意以下几点：</p>
+
+            <h3>直接引语为现在时的情况下，间接引语时态的变化如下：</h3>
+            <ul>
+                <li>一般现在时变成一般过去时。</li>
+                <li>现在进行时变成过去进行时。</li>
+                <li>现在完成时变成过去完成时。</li>
+                <li>现在简单将来时变成过去简单将来时。</li>
+                <li>现在完成进行时变成过去完成进行时。</li>
+            </ul>
+
+            <div class="example-box">
+                <p>直接引语："Je suis content." (我很高兴。)</p>
+                <p>间接引语："Il a dit qu'il était content." (他说他很高兴。)</p>
+            </div>
+
+            <h3>直接引语为过去时的情况下，间接引语时态的变化如下：</h3>
+            <ul>
+                <li>过去时变成过去完成时。</li>
+                <li>过去进行时变成过去完成进行时。</li>
+                <li>过去完成时变成过去完成时。</li>
+                <li>过去简单将来时变成过去完成将来时。</li>
+                <li>复合过去变愈过去时</li>
+            </ul>
+
+            <div class="example-box">
+                <p>直接引语："Je suis allé au cinéma hier soir." (昨晚我去了电影院。)</p>
+                <p>间接引语："Il a dit qu'il était allé au cinéma la veille au soir." (他说他前晚去了电影院。)</p>
+            </div>
+
+            <p>需要注意的是，在转换时态时，也要考虑到间接引语中的动词人称和数的变化。</p>
+
+            <h3>详细举例子</h3>
+            <p>当直接引语变成间接引语时，时态的变化会根据上下文的不同而发生变化。下面是一些相关变化的例子：</p>
+
+            <ol>
+                <li>一般现在时变成一般过去时：
+                    <div class="example-box">
+                        <p>直接引语：Il dit : "Je vais au travail tous les jours." (他说："我每天上班"。)</p>
+                        <p>间接引语：Il dit qu'il va au travail tous les jours. (他说他每天上班。)</p>
+                        <p>直接引语：Elle dit : "Je parle français couramment." (她说："我流利地说法语"。)</p>
+                        <p>间接引语：Elle dit qu'elle parle français couramment. (她说她流利地说法语。)</p>
+                    </div>
+                </li>
+
+                <li>现在进行时变成过去进行时：
+                    <div class="example-box">
+                        <p>直接引语：Il dit : "Je suis en train de manger." (他说："我正在吃饭"。)</p>
+                        <p>间接引语：Il dit qu'il était en train de manger. (他说他正在吃饭。)</p>
+                        <p>直接引语：Elle dit : "Je suis en train de regarder la télé." (她说："我正在看电视"。)</p>
+                        <p>间接引语：Elle dit qu'elle était en train de regarder la télé. (她说她正在看电视。)</p>
+                    </div>
+                </li>
+
+                <li>现在完成时变成过去完成时：
+                    <div class="example-box">
+                        <p>直接引语：Il dit : "J'ai fini mes devoirs." (他说："我完成了我的作业"。)</p>
+                        <p>间接引语：Il dit qu'il avait fini ses devoirs. (他说他完成了他的作业。)</p>
+                        <p>直接引语：Elle dit : "J'ai mangé une pomme." (她说："我吃了一个苹果"。)</p>
+                        <p>间接引语：Elle dit qu'elle avait mangé une pomme. (她说她吃了一个苹果。)</p>
+                    </div>
+                </li>
+
+                <li>现在简单将来时变成过去简单将来时：
+                    <div class="example-box">
+                        <p>直接引语：Il dit : "Je vais partir demain." (他说："我明天要离开"。)</p>
+                        <p>间接引语：Il dit qu'il allait partir le lendemain. (他说他明天要离开。)</p>
+                        <p>直接引语：Elle dit : "Je vais rendre visite à ma famille." (她说："我要去看我的家人"。)</p>
+                        <p>间接引语：Elle dit qu'elle allait rendre visite à sa famille. (她说她要去看她的家人。)</p>
+                    </div>
+                </li>
+            </ol>
+
+            <div class="note">
+                需要注意的是，变化的方式不仅仅涉及到时态，还可能涉及到人称和数的变化，这取决于引述的内容和上下文的语境。
+            </div>
+        </div>
     </main>
 
     <footer>
         <p>&copy; 2023 法语学习网站</p>
     </footer>
+
+    <script>
+        // 添加滚动进度条和渐入动画
+        window.addEventListener('scroll', () => {
+            const percent = (window.scrollY) / (document.documentElement.scrollHeight - window.innerHeight);
+            document.body.style.setProperty('--scroll-percent', percent);
+        });
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        document.querySelectorAll('.speech-section').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
 </body>
 </html> 

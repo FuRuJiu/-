@@ -7,88 +7,93 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <h1>强调句</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">返回首页</a></li>
-                <li><a href="grammar-overview.html">返回语法库总览</a></li>
-            </ul>
-        </nav>
-    </header>
+    <div class="container">
+        <header>
+            <h1>强调句</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">返回首页</a></li>
+                    <li><a href="grammar-overview.html">返回语法库总览</a></li>
+                </ul>
+            </nav>
+        </header>
+        
+        <main>
+            <div class="section-content">
+                <div class="grammar-item">
+                    <h2>强调句的构成</h2>
+                    <div class="grammar-details">
+                        <h3>强调句的基本结构</h3>
+                        <p>法语中的强调句主要通过以下方式构成：</p>
+                        <ul>
+                            <li>C'est... qui/que 结构</li>
+                            <li>Ce qui/que... c'est 结构</li>
+                            <li>词序变化</li>
+                            <li>语气词的使用</li>
+                        </ul>
+                    </div>
+                </div>
 
-    <main>
-        <section>
-            <h2>强调句</h2>
-            <div class="grammar-details">
-                <h3>强调成分 + c'est ce qui(que)...cequi(que)...</h3>
-                <ul>
-                    <li>Ce qui compte, c'est que tu sois à l'heure.</li>
-                    <li>Ce qui me rassure, c'est ce qui est sûr.</li>
-                </ul>
+                <div class="grammar-item">
+                    <h2>强调句的用法</h2>
+                    <div class="grammar-details">
+                        <h3>常见用法</h3>
+                        <ul>
+                            <li>强调主语：C'est... qui</li>
+                            <li>强调宾语：C'est... que</li>
+                            <li>强调时间地点：C'est... que</li>
+                            <li>强调整个句子：Ce qui/que... c'est</li>
+                        </ul>
+                    </div>
+                </div>
 
-                <h3>C'est + 强调成分 （ce sont）</h3>
-                <h3>C'est + 关系从句</h3>
-                <h4>强调主语: C'est ...qui...</h4>
-                <ul>
-                    <li>Ma fille chante dans la classe</li>
-                    <li>C'est ma fille qui chante dans la classe</li>
-                </ul>
-
-                <h4>强调其他成分</h4>
-                <ul>
-                    <li>C'est ...que...</li>
-                    <li>C'est dans un pub que Jacques a rencontré sa femme</li>
-                    <li>C'est la lettre que mon fils écrit à son ami</li>
-                    <li>C'est ...où ,dont,à quoi,auquel...</li>
-                </ul>
-                <p>补充说明：有介词的话就是que，没有介词的话就用où，où就相当于介词加地点。例子在这里：</p>
-                <ul>
-                    <li>C'est au restaurant que le maire fera son discours.（不缺成分）</li>
-                    <li>C'est ...que是强调句，去了之后，句子不缺成分，强调地点</li>
-                    <li>C'est ce restaurant où le maire fera son discours.（缺成分）</li>
-                    <li>Où 代替dans，à …+地点，那个句子不完整</li>
-                </ul>
-
-                <h3>人称代词与指示代词</h3>
-                <h4>重复主语</h4>
-                <ul>
-                    <li>重读人称代词：强调人</li>
-                    <li>Elle, c'est ma fille</li>
-                    <li>主语代词：强调人</li>
-                    <li>Catherine et Charles, ils ont acheté une cabine près de Lausanne pour la retraite</li>
-                    <li>指示代词：强调物</li>
-                    <li>Les démarches administratives en France, ça prend du temps</li>
-                </ul>
-
-                <h4>重复直接宾语</h4>
-                <ul>
-                    <li>Ces fleurs, je les ai achetées au marché de Rungis</li>
-                </ul>
-
-                <h3>Il n'y a que...qui/que, Ce n'est que...que...</h3>
-                <p>表达只有...才...的概念</p>
-                <ul>
-                    <li>Ce n'est qu'aujourd'hui que le malade a donné signe de vie.</li>
-                </ul>
-
-                <h3>Voilà/Voici...qui/que...</h3>
-                <ul>
-                    <li>Voilà Mme Dubois qui arrive !</li>
-                </ul>
-
-                <h3>补充说明</h3>
-                <p>如果强调的成分是代词，则需用代词的重读形式：</p>
-                <ul>
-                    <li>J'ai mangé cette pomme.</li>
-                    <li>C'est moi qui ai mangé cette pomme.</li>
-                </ul>
+                <div class="grammar-item">
+                    <h2>示例</h2>
+                    <div class="grammar-details">
+                        <h3>实际应用例句</h3>
+                        <ul>
+                            <li>C'est Pierre qui a fait ça. (是皮埃尔做的这个。)</li>
+                            <li>C'est à Paris que je l'ai rencontré. (是在巴黎我遇见他的。)</li>
+                            <li>Ce qui m'intéresse, c'est la musique. (使我感兴趣的是音乐。)</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-        </section>
-    </main>
+        </main>
+    </div>
 
     <footer>
         <p>&copy; 2023 法语学习网站</p>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // 滚动动画
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            });
+
+            document.querySelectorAll('.grammar-item, .section-content').forEach(item => {
+                observer.observe(item);
+            });
+
+            // 进度条
+            const progressBar = document.createElement('div');
+            progressBar.className = 'progress-bar';
+            document.body.appendChild(progressBar);
+
+            window.addEventListener('scroll', () => {
+                const scrolled = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+                progressBar.style.width = `${scrolled}%`;
+            });
+        });
+    </script>
 </body>
 </html> 

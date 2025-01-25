@@ -5,6 +5,112 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>双宾语代词</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* 特定页面的额外样式 */
+        .grammar-item {
+            position: relative;
+            overflow: hidden;
+            border-left: 4px solid #2196F3;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .grammar-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 8px 25px rgba(33, 150, 243, 0.15);
+        }
+
+        .grammar-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(33, 150, 243, 0.05), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.4s ease;
+        }
+
+        .grammar-item:hover::before {
+            transform: translateX(0);
+        }
+
+        .grammar-details {
+            position: relative;
+            z-index: 1;
+        }
+
+        h3 {
+            color: #1976D2;
+            position: relative;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        h3::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #2196F3, #64B5F6);
+            transition: width 0.3s ease;
+        }
+
+        .grammar-item:hover h3::after {
+            width: 100%;
+        }
+
+        ul li {
+            position: relative;
+            padding-left: 1.5em;
+            margin: 0.8em 0;
+            transition: all 0.3s ease;
+        }
+
+        ul li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: #2196F3;
+            opacity: 0.8;
+            transform: translateX(0);
+            transition: transform 0.3s ease;
+        }
+
+        ul li:hover {
+            transform: translateX(5px);
+            color: #1976D2;
+        }
+
+        ul li:hover::before {
+            transform: translateX(3px);
+            opacity: 1;
+        }
+
+        /* 动画效果增强 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section-content {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        /* 滚动进度条美化 */
+        .progress-bar {
+            background: linear-gradient(90deg, #2196F3, #64B5F6);
+            box-shadow: 0 2px 4px rgba(33, 150, 243, 0.2);
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -84,5 +190,29 @@
     <footer>
         <p>&copy; 2023 法语学习网站</p>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // 原有的动画代码保持不变...
+
+            // 添加鼠标移动视差效果
+            document.addEventListener('mousemove', (e) => {
+                const items = document.querySelectorAll('.grammar-item');
+                const mouseX = e.clientX / window.innerWidth;
+                const mouseY = e.clientY / window.innerHeight;
+
+                items.forEach(item => {
+                    const rect = item.getBoundingClientRect();
+                    const itemX = (rect.left + rect.width / 2) / window.innerWidth;
+                    const itemY = (rect.top + rect.height / 2) / window.innerHeight;
+
+                    const moveX = (mouseX - itemX) * 10;
+                    const moveY = (mouseY - itemY) * 10;
+
+                    item.style.transform = `translate(${moveX}px, ${moveY}px)`;
+                });
+            });
+        });
+    </script>
 </body>
 </html> 
