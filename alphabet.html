@@ -6,6 +6,189 @@
     <title>法语字母表及发音规则</title>
     <link rel="stylesheet" href="styles.css">
     <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2/dist/fuse.min.js"></script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(120deg, #f8f9fa, #ffebee, #ffcdd2);
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            animation: gradientBG 15s ease infinite;
+            background-size: 400% 400%;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50% }
+            50% { background-position: 100% 50% }
+            100% { background-position: 0% 50% }
+        }
+
+        header {
+            background: linear-gradient(135deg, #e53935, #c62828);
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: 'ABC';
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            font-size: 80px;
+            opacity: 0.1;
+            font-family: 'Times New Roman', serif;
+            transform: rotate(15deg);
+        }
+
+        header::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            animation: shine 8s infinite;
+        }
+
+        @keyframes shine {
+            to { left: 100%; }
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 0;
+            margin: 15px 0;
+            list-style: none;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 8px 15px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(5px);
+        }
+
+        nav a:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .alphabet-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 15px;
+            padding: 20px;
+        }
+
+        .letter-card {
+            background: rgba(255,255,255,0.9);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .letter-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(229, 57, 53, 0.2);
+        }
+
+        .letter-card::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(229, 57, 53, 0.1), transparent 70%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .letter-card:hover::after {
+            opacity: 1;
+        }
+
+        .letter {
+            font-size: 2em;
+            color: #e53935;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .pronunciation {
+            font-size: 0.9em;
+            color: #666;
+            font-style: italic;
+        }
+
+        .example-word {
+            margin-top: 10px;
+            color: #333;
+            font-size: 0.9em;
+        }
+
+        footer {
+            background: linear-gradient(135deg, #e53935, #c62828);
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+
+        /* 特殊音标样式 */
+        .phonetic {
+            font-family: 'Arial Unicode MS', 'Lucida Sans Unicode', sans-serif;
+            background: rgba(229, 57, 53, 0.05);
+            padding: 2px 5px;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        .phonetic:hover {
+            background: rgba(229, 57, 53, 0.1);
+            transform: scale(1.1);
+        }
+
+        /* 音频播放按钮样式 */
+        .audio-btn {
+            background: none;
+            border: 2px solid #e53935;
+            color: #e53935;
+            padding: 5px 10px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.8em;
+            margin-top: 10px;
+        }
+
+        .audio-btn:hover {
+            background: #e53935;
+            color: white;
+        }
+    </style>
 </head>
 <body>
     <header>

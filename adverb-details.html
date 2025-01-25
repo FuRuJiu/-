@@ -5,6 +5,226 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>副词1</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* 增强的动态样式 */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(120deg, #f8f9fa, #e9ecef, #dee2e6);
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            animation: gradientBG 15s ease infinite;
+            background-size: 400% 400%;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50% }
+            50% { background-position: 100% 50% }
+            100% { background-position: 0% 50% }
+        }
+
+        header {
+            background: linear-gradient(135deg, #6c5ce7, #a8a4e6);
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            animation: shine 3s infinite;
+        }
+
+        @keyframes shine {
+            to { left: 150%; }
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 0;
+            margin: 15px 0;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 8px 15px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        nav a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background: rgba(255,255,255,0.2);
+            transition: all 0.3s ease;
+            z-index: -1;
+        }
+
+        nav a:hover::before {
+            width: 100%;
+        }
+
+        .grammar-details {
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 25px;
+            background: rgba(255,255,255,0.95);
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transform: translateY(20px);
+            opacity: 0;
+            animation: fadeIn 0.6s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        h2, h3 {
+            color: #6c5ce7;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        h2::after, h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: #6c5ce7;
+            transition: width 0.3s ease;
+        }
+
+        h2:hover::after, h3:hover::after {
+            width: 100px;
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 20px;
+        }
+
+        li {
+            margin: 15px 0;
+            padding: 10px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            position: relative;
+            background: rgba(108, 92, 231, 0.05);
+        }
+
+        li:hover {
+            transform: translateX(10px);
+            background: rgba(108, 92, 231, 0.1);
+        }
+
+        em {
+            color: #6c5ce7;
+            font-style: italic;
+            transition: color 0.3s ease;
+            padding: 0 3px;
+        }
+
+        em:hover {
+            color: #4834d4;
+        }
+
+        strong {
+            color: #6c5ce7;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        strong:hover {
+            color: #4834d4;
+        }
+
+        p {
+            margin: 15px 0;
+            line-height: 1.8;
+            transition: all 0.3s ease;
+        }
+
+        p:hover {
+            transform: translateX(5px);
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(135deg, #6c5ce7, #a8a4e6);
+            color: #fff;
+            margin-top: 40px;
+        }
+
+        /* 滚动效果 */
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+
+        .scroll-reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* 为副词页面特别添加的样式 */
+        .example {
+            background: rgba(108, 92, 231, 0.05);
+            padding: 15px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border-left: 4px solid #6c5ce7;
+            transition: all 0.3s ease;
+        }
+
+        .example:hover {
+            transform: translateX(10px);
+            background: rgba(108, 92, 231, 0.1);
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            });
+
+            document.querySelectorAll('section').forEach((section) => {
+                observer.observe(section);
+            });
+        });
+    </script>
 </head>
 <body>
     <header>

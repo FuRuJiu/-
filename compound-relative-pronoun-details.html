@@ -6,88 +6,232 @@
     <title>复合关系代词</title>
     <link rel="stylesheet" href="styles.css">
     <style>
-        /* 自定义样式 */
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(120deg, #f8f9fa, #fff8e1, #ffe082);
             color: #333;
+            line-height: 1.6;
             margin: 0;
             padding: 0;
+            animation: gradientBG 15s ease infinite;
+            background-size: 400% 400%;
         }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50% }
+            50% { background-position: 100% 50% }
+            100% { background-position: 0% 50% }
+        }
+
         header {
-            background-color: #007bff;
-            color: white;
-            padding: 20px;
+            background: linear-gradient(135deg, #ffa000, #ff8f00);
+            color: #fff;
+            padding: 20px 0;
             text-align: center;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
         }
-        header h1 {
-            margin: 0;
-            font-size: 2em;
+
+        header::before {
+            content: '🔗';
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            font-size: 80px;
+            opacity: 0.1;
+            transform: rotate(15deg);
+            animation: pulse 3s ease-in-out infinite;
         }
+
+        @keyframes pulse {
+            0%, 100% { transform: rotate(15deg) scale(1); }
+            50% { transform: rotate(15deg) scale(1.1); }
+        }
+
+        header::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            animation: shine 8s infinite;
+        }
+
+        @keyframes shine {
+            to { left: 100%; }
+        }
+
         nav ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 10px 0 0;
             display: flex;
             justify-content: center;
+            gap: 20px;
+            padding: 0;
+            margin: 15px 0;
+            list-style: none;
         }
-        nav ul li {
-            margin: 0 10px;
-        }
-        nav ul li a {
-            color: white;
+
+        nav a {
+            color: #fff;
             text-decoration: none;
-            font-weight: bold;
+            padding: 8px 15px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255,255,255,0.2);
+            position: relative;
+            overflow: hidden;
         }
+
+        nav a:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
         main {
-            max-width: 800px;
-            margin: 20px auto;
+            max-width: 1200px;
+            margin: 0 auto;
             padding: 20px;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
-        h2 {
-            color: #007bff;
-            border-bottom: 2px solid #007极ff;
+
+        .pronoun-section {
+            background: rgba(255,255,255,0.9);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin: 20px 0;
+            position: relative;
+            overflow: hidden;
+            animation: slideIn 0.5s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .example-box {
+            background: rgba(255, 160, 0, 0.05);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border-left: 4px solid #ffa000;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .example-box:hover {
+            transform: translateX(10px);
+            background: rgba(255, 160, 0, 0.1);
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        h2, h3 {
+            color: #ff8f00;
+            border-bottom: 2px solid #ffa000;
             padding-bottom: 10px;
-            margin-bottom: 20px;
+            margin-top: 25px;
+            position: relative;
         }
-        p {
-            line-height: 1.6;
-            color: #555;
+
+        h2::after, h3::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #ffa000;
+            animation: expandWidth 1s ease forwards;
         }
-        ul {
-            list-style-type: disc;
-            padding-left: 20px;
-            margin-bottom: 20px;
+
+        @keyframes expandWidth {
+            to { width: 100%; }
         }
-        ul li {
-            margin-bottom: 10px;
-            color: #555;
+
+        .pronoun-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: rgba(255, 160, 0, 0.05);
+            border-radius: 10px;
+            overflow: hidden;
         }
+
+        .pronoun-table th, .pronoun-table td {
+            padding: 12px;
+            border: 1px solid rgba(255, 160, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .pronoun-table th {
+            background: rgba(255, 160, 0, 0.1);
+            color: #ff8f00;
+        }
+
+        .pronoun-table tr:hover td {
+            background: rgba(255, 160, 0, 0.1);
+            transform: translateX(5px);
+        }
+
         em {
+            color: #ff8f00;
             font-style: italic;
-            color: #d63384;
+            padding: 0 3px;
+            position: relative;
+            display: inline-block;
         }
-        strong {
-            color: #333;
+
+        em::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: currentColor;
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
         }
-        .example {
-            background-color: #f9f9f9;
-            padding: 10px;
-            border-left: 4px solid #007bff;
-            margin-bottom: 20px;
+
+        em:hover::after {
+            transform: scaleX(1);
         }
-        .example p {
-            margin: 0;
+
+        .note-box {
+            background: rgba(255, 160, 0, 0.05);
+            padding: 15px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border: 1px solid rgba(255, 160, 0, 0.2);
+            position: relative;
+            padding-left: 40px;
         }
+
+        .note-box::before {
+            content: '💡';
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
         footer {
+            background: linear-gradient(135deg, #ffa000, #ff8f00);
+            color: #fff;
             text-align: center;
             padding: 20px;
-            background-color: #007bff;
-            color: white;
-            margin-top: 20px;
+            margin-top: 40px;
         }
     </style>
 </head>

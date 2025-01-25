@@ -2,92 +2,197 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale极 1.0">
-    <title>定冠词用法</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>定冠词</title>
     <link rel="stylesheet" href="styles.css">
     <style>
-        /* 自定义样式 */
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(120deg, #f8f9fa, #e8f5e9, #c8e6c9);
             color: #333;
-            margin: 0;
-            padding: 0;
-        }
-        header {
-            background-color: #007bff;
-            color: white;
-            padding: 20px;
-            text-align: center;
-        }
-        header h1 {
-            margin: 0;
-            font-size: 2em;
-        }
-        nav ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 10px 0 0;
-            display: flex;
-            justify-content: center;
-        }
-        nav ul li {
-            margin: 0 10px;
-        }
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        main {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 极.1);
-        }
-        h2 {
-            color: #007bff;
-            border-bottom: 2px solid #007bff;
-            padding-bottom: 10px;
-            margin-bottom: 20px;
-        }
-        p {
             line-height: 1.6;
-            color: #555;
-        }
-        ul {
-            list-style-type: disc;
-            padding-left: 20px;
-            margin-bottom: 20px;
-        }
-        ul li {
-            margin-bottom: 10px;
-            color: #555;
-        }
-        em {
-            font-style: italic;
-            color: #d63384;
-        }
-        strong {
-            color: #333;
-        }
-        .example {
-            background-color: #f9f9f9;
-            padding: 10px;
-            border-left: 4px solid #007bff;
-            margin-bottom: 20px;
-        }
-        .example p {
             margin: 0;
+            padding: 0;
+            animation: gradientBG 15s ease infinite;
+            background-size: 400% 400%;
         }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50% }
+            50% { background-position: 100% 50% }
+            100% { background-position: 0% 50% }
+        }
+
+        header {
+            background: linear-gradient(135deg, #2e7d32, #1b5e20);
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '📚';
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            font-size: 80px;
+            opacity: 0.1;
+            animation: swing 3s ease-in-out infinite;
+        }
+
+        @keyframes swing {
+            0%, 100% { transform: rotate(15deg); }
+            50% { transform: rotate(-15deg); }
+        }
+
+        header::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            animation: shine 8s infinite;
+        }
+
+        @keyframes shine {
+            to { left: 100%; }
+        }
+
+        .article-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: rgba(255,255,255,0.9);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .article-table th, .article-table td {
+            padding: 15px;
+            text-align: left;
+            border: 1px solid rgba(46, 125, 50, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .article-table th {
+            background: rgba(46, 125, 50, 0.1);
+            color: #2e7d32;
+            font-weight: 600;
+        }
+
+        .article-table tr:hover td {
+            background: rgba(46, 125, 50, 0.05);
+            transform: translateX(5px);
+        }
+
+        .example-box {
+            background: rgba(46, 125, 50, 0.05);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border-left: 4px solid #2e7d32;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .example-box:hover {
+            transform: translateX(10px);
+            background: rgba(46, 125, 50, 0.1);
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        .rule-card {
+            background: rgba(255,255,255,0.9);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            border-left: 4px solid #2e7d32;
+            transition: all 0.3s ease;
+        }
+
+        .rule-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        h2, h3 {
+            color: #2e7d32;
+            border-bottom: 2px solid #1b5e20;
+            padding-bottom: 10px;
+            margin-top: 25px;
+            position: relative;
+        }
+
+        h2::after, h3::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #2e7d32;
+            animation: expandWidth 1s ease forwards;
+        }
+
+        @keyframes expandWidth {
+            to { width: 100%; }
+        }
+
+        .note-box {
+            background: rgba(46, 125, 50, 0.05);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border: 1px solid rgba(46, 125, 50, 0.2);
+            position: relative;
+            padding-left: 40px;
+        }
+
+        .note-box::before {
+            content: '💡';
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        em {
+            color: #2e7d32;
+            font-style: italic;
+            padding: 0 3px;
+            position: relative;
+            display: inline-block;
+        }
+
+        em::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: currentColor;
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        em:hover::after {
+            transform: scaleX(1);
+        }
+
         footer {
+            background: linear-gradient(135deg, #2e7d32, #1b5e20);
+            color: #fff;
             text-align: center;
             padding: 20px;
-            background-color: #007bff;
-            color: white;
-            margin-top: 20px;
+            margin-top: 40px;
         }
     </style>
 </head>
