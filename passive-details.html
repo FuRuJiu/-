@@ -3,12 +3,209 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>被动式</title>
+    <title>被动语态</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(120deg, #f8f9fa, #f3e5f5, #e1bee7);
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            animation: gradientBG 15s ease infinite;
+            background-size: 400% 400%;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50% }
+            50% { background-position: 100% 50% }
+            100% { background-position: 0% 50% }
+        }
+
+        header {
+            background: linear-gradient(135deg, #7b1fa2, #6a1b9a);
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '🔄';
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            font-size: 80px;
+            opacity: 0.1;
+            animation: rotateAndFloat 6s ease-in-out infinite;
+        }
+
+        @keyframes rotateAndFloat {
+            0% { transform: rotate(0deg) translateY(0); }
+            25% { transform: rotate(90deg) translateY(-10px); }
+            50% { transform: rotate(180deg) translateY(0); }
+            75% { transform: rotate(270deg) translateY(10px); }
+            100% { transform: rotate(360deg) translateY(0); }
+        }
+
+        .passive-section {
+            background: rgba(255,255,255,0.9);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+            animation: slideIn 0.5s ease-out;
+            border-left: 5px solid #7b1fa2;
+            transition: transform 0.3s ease;
+        }
+
+        .passive-section:hover {
+            transform: translateX(10px);
+        }
+
+        .example-box {
+            background: rgba(123, 31, 162, 0.05);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border: 1px solid rgba(123, 31, 162, 0.2);
+            position: relative;
+            padding-left: 40px;
+            transition: all 0.3s ease;
+        }
+
+        .example-box:hover {
+            background: rgba(123, 31, 162, 0.1);
+            transform: scale(1.02);
+        }
+
+        .example-box::before {
+            content: '🎯';
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: translateY(-50%) scale(1); }
+            50% { transform: translateY(-50%) scale(1.2); }
+            100% { transform: translateY(-50%) scale(1); }
+        }
+
+        .transformation-arrow {
+            display: inline-block;
+            margin: 0 10px;
+            color: #7b1fa2;
+            animation: arrow 1.5s infinite;
+        }
+
+        @keyframes arrow {
+            0%, 100% { transform: translateX(0); }
+            50% { transform: translateX(10px); }
+        }
+
+        h2, h3 {
+            color: #7b1fa2;
+            border-bottom: 2px solid #6a1b9a;
+            padding-bottom: 10px;
+            margin-top: 25px;
+            position: relative;
+        }
+
+        h2::after, h3::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #7b1fa2;
+            animation: expandWidth 1s ease forwards;
+        }
+
+        .note-box {
+            background: rgba(123, 31, 162, 0.05);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border: 1px solid rgba(123, 31, 162, 0.2);
+            position: relative;
+            padding-left: 40px;
+            transition: all 0.3s ease;
+        }
+
+        .note-box:hover {
+            box-shadow: 0 5px 15px rgba(123, 31, 162, 0.1);
+        }
+
+        .note-box::before {
+            content: '💡';
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            animation: glow 2s infinite;
+        }
+
+        @keyframes glow {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.6; }
+        }
+
+        code {
+            background: rgba(123, 31, 162, 0.1);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Consolas', monospace;
+            transition: background-color 0.3s ease;
+        }
+
+        code:hover {
+            background: rgba(123, 31, 162, 0.2);
+        }
+
+        .verb-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .verb-table th, .verb-table td {
+            padding: 12px;
+            border: 1px solid rgba(123, 31, 162, 0.2);
+            text-align: left;
+            transition: all 0.3s ease;
+        }
+
+        .verb-table th {
+            background: rgba(123, 31, 162, 0.1);
+            color: #7b1fa2;
+        }
+
+        .verb-table tr:hover td {
+            background: rgba(123, 31, 162, 0.05);
+        }
+
+        footer {
+            background: linear-gradient(135deg, #7b1fa2, #6a1b9a);
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+    </style>
 </head>
 <body>
     <header>
-        <h1>被动式</h1>
+        <h1>被动语态</h1>
         <nav>
             <ul>
                 <li><a href="index.html">返回首页</a></li>
@@ -19,17 +216,17 @@
 
     <main>
         <section>
-            <h2>被动式</h2>
+            <h2>被动语态</h2>
             <div class="grammar-details">
-                <p>在法语中，被动式（la voix passive）用于指代一个动作的接受者，而不是动作的执行者。法语中的被动式由助动词"être"+过去分词构成。</p>
+                <p>在法语中，被动语态（la voix passive）用于指代一个动作的接受者，而不是动作的执行者。法语中的被动语态由助动词"être"+过去分词构成。</p>
 
                 <h3>示例</h3>
                 <ul>
-                    <li><em>Le chat mange la souris</em>（猫吃老鼠）可以变成被动式 <em>La souris est mangée par le chat</em>（老鼠被猫吃了）。</li>
+                    <li><em>Le chat mange la souris</em>（猫吃老鼠）可以变成被动语态 <em>La souris est mangée par le chat</em>（老鼠被猫吃了）。</li>
                 </ul>
 
                 <h3>结构</h3>
-                <p>被动式的基本结构是：<strong>助动词"être" + 过去分词</strong>。在被动句中，原来的主语变成了介词"par"的宾语。</p>
+                <p>被动语态的基本结构是：<strong>助动词"être" + 过去分词</strong>。在被动句中，原来的主语变成了介词"par"的宾语。</p>
 
                 <h3>其他介词</h3>
                 <p>在一些情况下，也可以用其他介词代替"par"，比如：</p>
@@ -40,19 +237,19 @@
                 </ul>
 
                 <h3>强调动作的执行者</h3>
-                <p>被动式可以与副词一起使用，以强调动作的执行者。例如：</p>
+                <p>被动语态可以与副词一起使用，以强调动作的执行者。例如：</p>
                 <ul>
                     <li><em>Le livre a été écrit par un célèbre auteur</em>（这本书是由一位著名的作者写的）。</li>
                 </ul>
 
                 <h3>表达普遍真理或常规做法</h3>
-                <p>被动式也可以用于表达普遍真理或常规做法。例如：</p>
+                <p>被动语态也可以用于表达普遍真理或常规做法。例如：</p>
                 <ul>
                     <li><em>Les fruits sont mangés pour être en bonne santé</em>（人们吃水果是为了保持健康）。</li>
                 </ul>
 
                 <h3>总结</h3>
-                <p>在法语中，被动式可以用于指代动作的接受者，由助动词"être"+过去分词构成。在被动句中，原来的主语变成了介词"par"的宾语。被动式还可以与副词一起使用，以强调动作的执行者，并且也可以用于表达普遍真理或常规做法。</p>
+                <p>在法语中，被动语态可以用于指代动作的接受者，由助动词"être"+过去分词构成。在被动句中，原来的主语变成了介词"par"的宾语。被动语态还可以与副词一起使用，以强调动作的执行者，并且也可以用于表达普遍真理或常规做法。</p>
             </div>
         </section>
     </main>

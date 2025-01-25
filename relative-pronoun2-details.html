@@ -3,80 +3,198 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>关系代词2</title>
+    <title>关系代词（第二组）</title>
     <link rel="stylesheet" href="styles.css">
     <style>
-        /* 自定义样式 */
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(120deg, #f8f9fa, #e0f7fa, #b2ebf2);
             color: #333;
-            margin: 0;
-            padding: 0;
-        }
-        header {
-            background-color: #4CAF50;
-            color: white;
-            padding: 20px;
-            text-align: center;
-        }
-        header h1 {
-            margin: 0;
-            font-size: 2.5em;
-        }
-        nav ul {
-            list-style: none;
-            padding: 0;
-            margin: 10px 0 0;
-            display: flex;
-            justify-content: center;
-        }
-        nav ul li {
-            margin: 0 15px;
-        }
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        nav ul li a:hover {
-            text-decoration: underline;
-        }
-        main {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-        h2 {
-            color: #4CAF50;
-            border-bottom: 2px solid #4CAF50;
-            padding-bottom: 10px;
-        }
-        h3 {
-            color: #333;
-            margin-top: 20px;
-        }
-        ul {
-            padding-left: 20px;
-        }
-        ul li {
-            margin-bottom: 10px;
-        }
-        p {
             line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            animation: gradientBG 15s ease infinite;
+            background-size: 400% 400%;
         }
-        .grammar-details {
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50% }
+            50% { background-position: 100% 50% }
+            100% { background-position: 0% 50% }
+        }
+
+        header {
+            background: linear-gradient(135deg, #00acc1, #00838f);
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '🌊';
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            font-size: 80px;
+            opacity: 0.1;
+            animation: wave 6s ease-in-out infinite;
+        }
+
+        @keyframes wave {
+            0% { transform: translateY(0) rotate(0deg); }
+            25% { transform: translateY(-15px) rotate(10deg); }
+            50% { transform: translateY(0) rotate(0deg); }
+            75% { transform: translateY(15px) rotate(-10deg); }
+            100% { transform: translateY(0) rotate(0deg); }
+        }
+
+        .pronoun-section {
+            background: rgba(255,255,255,0.9);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+            border-left: 5px solid #00acc1;
+            transition: all 0.3s ease;
+        }
+
+        .pronoun-section:hover {
+            transform: translateX(10px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .example-box {
+            background: rgba(0, 172, 193, 0.05);
             padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border: 1px solid rgba(0, 172, 193, 0.2);
+            position: relative;
+            padding-left: 40px;
         }
+
+        .example-box::before {
+            content: '💧';
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            animation: drip 2s infinite;
+        }
+
+        @keyframes drip {
+            0%, 100% { transform: translateY(-50%) scale(1); }
+            50% { transform: translateY(-30%) scale(0.8); }
+        }
+
+        .rule-card {
+            background: rgba(0, 172, 193, 0.05);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border: 1px solid rgba(0, 172, 193, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .rule-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(0, 172, 193, 0.05), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s ease;
+        }
+
+        .rule-card:hover::before {
+            transform: translateX(100%);
+        }
+
+        h2, h3 {
+            color: #00acc1;
+            border-bottom: 2px solid #00838f;
+            padding-bottom: 10px;
+            margin-top: 25px;
+            position: relative;
+        }
+
+        h2::after, h3::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #00acc1;
+            animation: expandWidth 1s ease forwards;
+        }
+
+        @keyframes expandWidth {
+            to { width: 100%; }
+        }
+
+        .note-box {
+            background: rgba(0, 172, 193, 0.05);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border: 1px solid rgba(0, 172, 193, 0.2);
+            position: relative;
+            padding-left: 40px;
+        }
+
+        .note-box::before {
+            content: '🌊';
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            animation: float 3s infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(-50%) scale(1); }
+            50% { transform: translateY(-60%) scale(1.1); }
+        }
+
+        .pronoun-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .pronoun-table th, .pronoun-table td {
+            padding: 12px;
+            border: 1px solid rgba(0, 172, 193, 0.2);
+            text-align: left;
+            transition: all 0.3s ease;
+        }
+
+        .pronoun-table th {
+            background: rgba(0, 172, 193, 0.1);
+            color: #00acc1;
+        }
+
+        .pronoun-table tr:hover td {
+            background: rgba(0, 172, 193, 0.05);
+        }
+
         footer {
+            background: linear-gradient(135deg, #00acc1, #00838f);
+            color: #fff;
             text-align: center;
             padding: 20px;
-            background-color: #4CAF50;
-            color: white;
-            margin-top: 20px;
+            margin-top: 40px;
         }
     </style>
 </head>

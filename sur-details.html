@@ -5,6 +5,194 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>介词 "sur" 的用法</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(120deg, #f8f9fa, #fff3e0, #ffe0b2);
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            animation: gradientBG 15s ease infinite;
+            background-size: 400% 400%;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50% }
+            50% { background-position: 100% 50% }
+            100% { background-position: 0% 50% }
+        }
+
+        header {
+            background: linear-gradient(135deg, #ff9800, #f57c00);
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '🔗';
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            font-size: 80px;
+            opacity: 0.1;
+            animation: linkChain 6s ease-in-out infinite;
+        }
+
+        @keyframes linkChain {
+            0% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(180deg); }
+            100% { transform: translateY(0) rotate(360deg); }
+        }
+
+        .preposition-section {
+            background: rgba(255,255,255,0.9);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+            border-left: 5px solid #ff9800;
+            transition: all 0.3s ease;
+        }
+
+        .preposition-section:hover {
+            transform: translateX(10px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .usage-card {
+            background: rgba(255, 152, 0, 0.05);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border: 1px solid rgba(255, 152, 0, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .usage-card::before {
+            content: '🎯';
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            animation: target 3s infinite;
+        }
+
+        @keyframes target {
+            0%, 100% { transform: translateY(-50%) scale(1); }
+            50% { transform: translateY(-50%) scale(1.2); }
+        }
+
+        .example-box {
+            background: rgba(255, 152, 0, 0.05);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border: 1px solid rgba(255, 152, 0, 0.2);
+            position: relative;
+            padding-left: 40px;
+        }
+
+        .example-box::before {
+            content: '💡';
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            animation: glow 3s infinite;
+        }
+
+        @keyframes glow {
+            0%, 100% { opacity: 1; transform: translateY(-50%) scale(1); }
+            50% { opacity: 0.7; transform: translateY(-50%) scale(1.1); }
+        }
+
+        h2, h3 {
+            color: #ff9800;
+            border-bottom: 2px solid #f57c00;
+            padding-bottom: 10px;
+            margin-top: 25px;
+            position: relative;
+        }
+
+        h2::after, h3::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #ff9800;
+            animation: expandWidth 1s ease forwards;
+        }
+
+        @keyframes expandWidth {
+            to { width: 100%; }
+        }
+
+        .usage-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .usage-table th, .usage-table td {
+            padding: 12px;
+            border: 1px solid rgba(255, 152, 0, 0.2);
+            text-align: left;
+            transition: all 0.3s ease;
+        }
+
+        .usage-table th {
+            background: rgba(255, 152, 0, 0.1);
+            color: #ff9800;
+        }
+
+        .usage-table tr:hover td {
+            background: rgba(255, 152, 0, 0.05);
+        }
+
+        .note-box {
+            background: rgba(255, 152, 0, 0.05);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border: 1px solid rgba(255, 152, 0, 0.2);
+            position: relative;
+            padding-left: 40px;
+        }
+
+        .note-box::before {
+            content: '📌';
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            animation: pin 2s infinite;
+        }
+
+        @keyframes pin {
+            0%, 100% { transform: translateY(-50%) rotate(0deg); }
+            50% { transform: translateY(-50%) rotate(15deg); }
+        }
+
+        footer {
+            background: linear-gradient(135deg, #ff9800, #f57c00);
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+    </style>
 </head>
 <body>
     <header>

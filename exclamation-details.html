@@ -6,77 +6,181 @@
     <title>感叹句</title>
     <link rel="stylesheet" href="styles.css">
     <style>
-        /* 自定义样式 */
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(120deg, #f8f9fa, #fff3e0, #ffe0b2);
             color: #333;
-            margin: 0;
-            padding: 0;
-        }
-        header {
-            background-color: #4CAF50;
-            color: white;
-            padding: 20px;
-            text-align: center;
-        }
-        header h1 {
-            margin: 0;
-            font-size: 2.5em;
-        }
-        nav ul {
-            list-style: none;
-            padding: 0;
-            margin: 10px 0 0;
-            display: flex;
-            justify-content: center;
-        }
-        nav ul li {
-            margin: 0 15px;
-        }
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        nav ul li a:hover {
-            text-decoration: underline;
-        }
-        main {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-        h2 {
-            color: #4CAF50;
-            border-bottom: 2px solid #4CAF50;
-            padding-bottom: 10px;
-        }
-        h3 {
-            color: #333;
-            margin-top: 20px;
-        }
-        ul {
-            padding-left: 20px;
-        }
-        ul li {
-            margin-bottom: 10px;
-        }
-        p {
             line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            animation: gradientBG 15s ease infinite;
+            background-size: 400% 400%;
         }
-        .grammar-details {
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50% }
+            50% { background-position: 100% 50% }
+            100% { background-position: 0% 50% }
+        }
+
+        header {
+            background: linear-gradient(135deg, #ff9800, #f57c00);
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '❗';
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            font-size: 80px;
+            opacity: 0.1;
+            animation: bounce 2s ease-in-out infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0) rotate(15deg); }
+            50% { transform: translateY(-20px) rotate(15deg); }
+        }
+
+        .exclamation-card {
+            background: rgba(255,255,255,0.9);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-left: 4px solid #ff9800;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .exclamation-card::before {
+            content: '!';
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 4em;
+            color: rgba(255, 152, 0, 0.1);
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .exclamation-card:hover::before {
+            transform: translateY(-50%) scale(1.2);
+            color: rgba(255, 152, 0, 0.2);
+        }
+
+        .exclamation-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .example-box {
+            background: rgba(255, 152, 0, 0.05);
             padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border-left: 4px solid #ff9800;
+            transition: all 0.3s ease;
+            position: relative;
         }
+
+        .example-box:hover {
+            transform: translateX(10px);
+            background: rgba(255, 152, 0, 0.1);
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        h2, h3 {
+            color: #f57c00;
+            border-bottom: 2px solid #ff9800;
+            padding-bottom: 10px;
+            margin-top: 25px;
+            position: relative;
+        }
+
+        h2::after, h3::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #ff9800;
+            animation: expandWidth 1s ease forwards;
+        }
+
+        @keyframes expandWidth {
+            to { width: 100%; }
+        }
+
+        .pattern-box {
+            background: rgba(255, 152, 0, 0.05);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border: 1px solid rgba(255, 152, 0, 0.2);
+            position: relative;
+        }
+
+        .pattern-box::before {
+            content: '📝';
+            margin-right: 10px;
+            font-size: 1.2em;
+            vertical-align: middle;
+        }
+
+        em {
+            color: #f57c00;
+            font-style: italic;
+            padding: 0 3px;
+            position: relative;
+            display: inline-block;
+        }
+
+        em::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: currentColor;
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        em:hover::after {
+            transform: scaleX(1);
+        }
+
+        .exclamation-mark {
+            display: inline-block;
+            color: #ff9800;
+            font-size: 1.2em;
+            font-weight: bold;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+
         footer {
+            background: linear-gradient(135deg, #ff9800, #f57c00);
+            color: #fff;
             text-align: center;
             padding: 20px;
-            background-color: #4CAF50;
-            color: white;
-            margin-top: 20px;
+            margin-top: 40px;
         }
     </style>
 </head>

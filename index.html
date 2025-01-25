@@ -8,89 +8,173 @@
     <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2/dist/fuse.min.js"></script>
     <!-- 内联关键 CSS -->
     <style>
-        /* 关键 CSS 内容 */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f9f9f9;
+            background: linear-gradient(120deg, #f8f9fa, #e3f2fd, #bbdefb);
             color: #333;
             line-height: 1.6;
             margin: 0;
             padding: 0;
+            animation: gradientBG 15s ease infinite;
+            background-size: 400% 400%;
         }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50% }
+            50% { background-position: 100% 50% }
+            100% { background-position: 0% 50% }
+        }
+
         header {
-            background-color: #4a90e2;
+            background: linear-gradient(135deg, #2196f3, #1976d2);
             color: #fff;
-            padding: 20px 0;
+            padding: 40px 0;
             text-align: center;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
         }
-        nav ul {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            list-style: none;
-            padding: 0;
-            margin: 0;
+
+        header::before {
+            content: '🇫🇷';
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            font-size: 100px;
+            opacity: 0.1;
+            animation: wave 10s ease-in-out infinite;
         }
-        nav ul li a {
-            color: #fff;
-            text-decoration: none;
-            font-weight: bold;
-            transition: color 0.3s ease;
+
+        @keyframes wave {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(10deg); }
+            75% { transform: rotate(-10deg); }
         }
-        nav ul li a:hover {
-            color: #ffdd57;
-        }
-        main {
-            padding: 20px;
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 40px;
             max-width: 1200px;
             margin: 0 auto;
         }
-        section {
-            margin-bottom: 30px;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+        .feature-card {
+            background: rgba(255,255,255,0.9);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            border-left: 4px solid #2196f3;
         }
-        h2 {
-            color: #4a90e2;
-            border-bottom: 2px solid #4a90e2;
-            padding-bottom: 10px;
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(33, 150, 243, 0.05), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s ease;
+        }
+
+        .feature-card:hover::before {
+            transform: translateX(100%);
+        }
+
+        .feature-icon {
+            font-size: 2.5em;
             margin-bottom: 20px;
+            display: block;
+            animation: bounce 2s infinite;
         }
-        .contact-info {
-            background-color: #f1f1f1;
-            padding: 15px;
-            border-radius: 8px;
-            margin-top: 20px;
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
         }
-        .contact-info h3 {
-            color: #333;
-            margin-bottom: 10px;
+
+        h2 {
+            color: #1976d2;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
         }
-        .contact-info p {
-            margin: 5px 0;
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #2196f3;
+            animation: expandWidth 1s ease forwards;
         }
+
+        @keyframes expandWidth {
+            to { width: 100%; }
+        }
+
+        .nav-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .nav-link {
+            background: rgba(33, 150, 243, 0.05);
+            padding: 15px 20px;
+            border-radius: 10px;
+            color: #1976d2;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-link:hover {
+            background: rgba(33, 150, 243, 0.1);
+            transform: translateX(10px);
+        }
+
+        .nav-link::before {
+            content: '→';
+            position: absolute;
+            right: 20px;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover::before {
+            opacity: 1;
+            transform: translateX(5px);
+        }
+
         footer {
-            background-color: #4a90e2;
+            background: linear-gradient(135deg, #2196f3, #1976d2);
             color: #fff;
             text-align: center;
-            padding: 10px 0;
-            margin-top: 30px;
-            box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-top: 40px;
         }
-        footer p {
-            margin: 0;
-        }
-        a {
-            color: #4a90e2;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-        a:hover {
-            color: #ffdd57;
-        }
+
+        /* 为不同功能区设置不同的图标 */
+        .feature-card[data-feature="grammar"] .feature-icon::before { content: '📚'; }
+        .feature-card[data-feature="vocabulary"] .feature-icon::before { content: '📝'; }
+        .feature-card[data-feature="practice"] .feature-icon::before { content: '✍️'; }
+        .feature-card[data-feature="culture"] .feature-icon::before { content: '🎭'; }
     </style>
     <!-- 预加载关键资源 -->
     <link rel="preload" href="styles.css" as="style">

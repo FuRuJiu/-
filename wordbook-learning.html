@@ -5,6 +5,138 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>单词书学习 - 开发中</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(120deg, #f8f9fa, #f3e5f5, #e1bee7);
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            animation: gradientBG 15s ease infinite;
+            background-size: 400% 400%;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50% }
+            50% { background-position: 100% 50% }
+            100% { background-position: 0% 50% }
+        }
+
+        header {
+            background: linear-gradient(135deg, #9c27b0, #7b1fa2);
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '🚧';
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            font-size: 80px;
+            opacity: 0.1;
+            animation: construct 4s ease-in-out infinite;
+        }
+
+        @keyframes construct {
+            0% { transform: translateY(0) rotate(0deg); }
+            25% { transform: translateY(-10px) rotate(10deg); }
+            50% { transform: translateY(0) rotate(0deg); }
+            75% { transform: translateY(-10px) rotate(-10deg); }
+            100% { transform: translateY(0) rotate(0deg); }
+        }
+
+        section {
+            background: rgba(255,255,255,0.9);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+            border-left: 5px solid #9c27b0;
+            animation: slideIn 0.5s ease-out;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(-20px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        h2 {
+            color: #9c27b0;
+            position: relative;
+            padding-left: 40px;
+            margin-bottom: 30px;
+        }
+
+        h2::before {
+            content: '🔨';
+            position: absolute;
+            left: 0;
+            animation: hammer 2s infinite;
+        }
+
+        @keyframes hammer {
+            0%, 100% { transform: rotate(0deg); }
+            50% { transform: rotate(20deg); }
+        }
+
+        p {
+            background: rgba(156, 39, 176, 0.05);
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid rgba(156, 39, 176, 0.2);
+            position: relative;
+            margin-top: 20px;
+            padding-left: 40px;
+            animation: fadeIn 1s ease-out;
+        }
+
+        p::before {
+            content: '⚡';
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            animation: spark 2s infinite;
+        }
+
+        @keyframes spark {
+            0%, 100% { transform: translateY(-50%) scale(1); }
+            50% { transform: translateY(-50%) scale(1.2); }
+        }
+
+        footer {
+            background: linear-gradient(135deg, #9c27b0, #7b1fa2);
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        footer::after {
+            content: '🔮';
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 24px;
+            animation: float 3s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(-50%) translateX(0); }
+            50% { transform: translateY(-50%) translateX(-10px); }
+        }
+    </style>
 </head>
 <body>
     <header>

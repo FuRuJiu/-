@@ -3,80 +3,201 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>过去分词1</title>
+    <title>过去分词（第一组）</title>
     <link rel="stylesheet" href="styles.css">
     <style>
-        /* 自定义样式 */
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f极4f4f9;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(120deg, #f8f9fa, #f5f0e3, #e6d5c3);
             color: #333;
-            margin: 0;
-            padding: 0;
-        }
-        header {
-            background-color: #4CAF50;
-            color: white;
-            padding: 20px;
-            text-align: center;
-        }
-        header h1 {
-            margin: 0;
-            font-size: 2.5em;
-        }
-        nav ul {
-            list-style: none;
-            padding: 0;
-            margin: 10px 0 0;
-            display: flex;
-            justify-content: center;
-        }
-        nav ul li {
-            margin: 0 15px;
-        }
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        nav ul li a:hover {
-            text-decoration: underline;
-        }
-        main {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-        h2 {
-            color: #4CAF50;
-            border-bottom: 2px solid #4CAF50;
-            padding-bottom: 10px;
-        }
-        h3 {
-            color: #333;
-            margin-top: 20px;
-        }
-        ul {
-            padding-left: 20px;
-        }
-        ul li {
-            margin-bottom: 10px;
-        }
-        p {
             line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            animation: gradientBG 15s ease infinite;
+            background-size: 400% 400%;
         }
-        .grammar-details {
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50% }
+            50% { background-position: 100% 50% }
+            100% { background-position: 0% 50% }
+        }
+
+        header {
+            background: linear-gradient(135deg, #8d6e63, #6d4c41);
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '📖';
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            font-size: 80px;
+            opacity: 0.1;
+            animation: pageFlip 6s ease-in-out infinite;
+        }
+
+        @keyframes pageFlip {
+            0% { transform: perspective(400px) rotateY(0); }
+            50% { transform: perspective(400px) rotateY(180deg); }
+            100% { transform: perspective(400px) rotateY(360deg); }
+        }
+
+        .participle-group {
+            background: rgba(255,255,255,0.9);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+            border-left: 5px solid #8d6e63;
+            transition: all 0.3s ease;
+        }
+
+        .participle-group:hover {
+            transform: translateX(10px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .verb-card {
+            background: rgba(141, 110, 99, 0.05);
             padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border: 1px solid rgba(141, 110, 99, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
         }
+
+        .verb-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(141, 110, 99, 0.05), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s ease;
+        }
+
+        .verb-card:hover::before {
+            transform: translateX(100%);
+        }
+
+        .verb-card:hover {
+            background: rgba(141, 110, 99, 0.1);
+            transform: scale(1.01);
+        }
+
+        .example-box {
+            background: rgba(141, 110, 99, 0.05);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border: 1px solid rgba(141, 110, 99, 0.2);
+            position: relative;
+            padding-left: 40px;
+        }
+
+        .example-box::before {
+            content: '🖋️';
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            animation: scribble 3s infinite;
+        }
+
+        @keyframes scribble {
+            0%, 100% { transform: translateY(-50%) rotate(-15deg); }
+            50% { transform: translateY(-50%) rotate(15deg); }
+        }
+
+        h2, h3 {
+            color: #8d6e63;
+            border-bottom: 2px solid #6d4c41;
+            padding-bottom: 10px;
+            margin-top: 25px;
+            position: relative;
+        }
+
+        h2::after, h3::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #8d6e63;
+            animation: expandWidth 1s ease forwards;
+        }
+
+        @keyframes expandWidth {
+            to { width: 100%; }
+        }
+
+        .conjugation-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .conjugation-table th, .conjugation-table td {
+            padding: 12px;
+            border: 1px solid rgba(141, 110, 99, 0.2);
+            text-align: left;
+            transition: all 0.3s ease;
+        }
+
+        .conjugation-table th {
+            background: rgba(141, 110, 99, 0.1);
+            color: #8d6e63;
+        }
+
+        .conjugation-table tr:hover td {
+            background: rgba(141, 110, 99, 0.05);
+        }
+
+        .note-box {
+            background: rgba(141, 110, 99, 0.05);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border: 1px solid rgba(141, 110, 99, 0.2);
+            position: relative;
+            padding-left: 40px;
+        }
+
+        .note-box::before {
+            content: '💡';
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            animation: glow 2s infinite;
+        }
+
+        @keyframes glow {
+            0%, 100% { opacity: 1; transform: translateY(-50%) scale(1); }
+            50% { opacity: 0.7; transform: translateY(-50%) scale(1.1); }
+        }
+
         footer {
+            background: linear-gradient(135deg, #8d6e63, #6d4c41);
+            color: #fff;
             text-align: center;
             padding: 20px;
-            background-color: #4CAF50;
-            color: white;
-            margin-top: 20px;
+            margin-top: 40px;
         }
     </style>
 </head>
@@ -96,37 +217,37 @@
             <h2>过去分词1</h2>
             <div class="grammar-details">
                 <h3>过去分词的形式</h3>
-                <p>法语的过去分词是一种用于描述完成过去行动的动词形式。通常以“-é”（例如，“parlé”（说过的））、“-i”（例如，“fini”（完成的））或“-u”（例如，“vendu”（卖过的））等后缀结尾。它们的形式通常取决于原始动词的最后一个音节。</p>
+                <p>法语的过去分词是一种用于描述完成过去行动的动词形式。通常以"-"é（例如，"parlé"（说过的））、"i"（例如，"fini"（完成的））或"u"（例如，"vendu"（卖过的））等后缀结尾。它们的形式通常取决于原始动词的最后一个音节。</p>
 
                 <h3>过去分词的用法</h3>
                 <p>在法语中，过去分词通常用作动词、名词和形容词的补语，例如：</p>
                 <ul>
-                    <li>作为动词补语，过去分词通常用于描述完成的行动或状态，例如：“J'ai mangé”（我吃过了）。</li>
-                    <li>作为名词补语，过去分词通常用于描述行动对其他事物的影响，例如：“Le film regardé”（看过的电影）。</li>
-                    <li>作为形容词补语，过去分词通常用于描述过去完成的行动或状态，例如：“La porte fermée”（关闭的门）。</li>
+                    <li>作为动词补语，过去分词通常用于描述完成的行动或状态，例如："J'ai mangé"（我吃过了）。</li>
+                    <li>作为名词补语，过去分词通常用于描述行动对其他事物的影响，例如："Le film regardé"（看过的电影）。</li>
+                    <li>作为形容词补语，过去分词通常用于描述过去完成的行动或状态，例如："La porte fermée"（关闭的门）。</li>
                 </ul>
 
                 <h3>特殊用法</h3>
                 <ul>
                     <li>作为形容词使用，表示状态或感受。例如：fatigué（疲倦的）、ennuyé（无聊的）、content（满意的）。</li>
                     <li>作为副词使用，用于修饰动词、形容词或其他副词，表示程度或方式。例如：bien mangé（吃得好）、très occupé（非常忙碌）、malheureusement（不幸地）。</li>
-                    <li>作为补语使用，表示状态或完成。例如：“La porte est restée ouverte.”（门一直敞着。）“J'ai vu les enfants fatigués.”（我看到孩子们很累。）</li>
+                    <li>作为补语使用，表示状态或完成。例如："La porte est restée ouverte."（门一直敞着。）"J'ai vu les enfants fatigués."（我看到孩子们很累。）</li>
                 </ul>
 
-                <h3>过去分词与助动词“avoir”和“être”的使用</h3>
-                <p>在法语中，过去分词的使用通常受到助动词“avoir”和“être”的影响。如果一个动词使用助动词“avoir”，则过去分词是该动词的直接补语。而如果该动词使用助动词“être”，则过去分词是该动词的主语呼应。例如：“Elle a mangé”（她吃过了）和“Elle est allée”（她去过了）。</p>
+                <h3>过去分词与助动词"avoir"和"être"的使用</h3>
+                <p>在法语中，过去分词的使用通常受到助动词"avoir"和"être"的影响。如果一个动词使用助动词"avoir"，则过去分词是该动词的直接补语。而如果该动词使用助动词"être"，则过去分词是该动词的主语呼应。例如："Elle a mangé"（她吃过了）和"Elle est allée"（她去过了）。</p>
 
                 <h3>过去分词的不规则变化</h3>
-                <p>像其他语言一样，法语也有一些不规则动词的过去分词形式，通常需要记忆和练习。例如，“voir”（看见）的过去分词是“vu”（看过的），“être”（是）的过去分词是“été”（过去的）。</p>
+                <p>像其他语言一样，法语也有一些不规则动词的过去分词形式，通常需要记忆和练习。例如，"voir"（看见）的过去分词是"vu"（看过的），"être"（是）的过去分词是"été"（过去的）。</p>
 
                 <h3>过去分词的常用习惯句式</h3>
-                <p>法语中还有许多常见的习惯用法，其中包括过去分词。例如，“en train de”短语通常用于描述正在进行的动作（例如，“Elle est en train de manger”（她正在吃饭）），“avoir l'air”短语通常用于描述某人或某物的外观或感觉（例如，“Elle a l'air fatiguée”（她看起来很累））。</p>
+                <p>法语中还有许多常见的习惯用法，其中包括过去分词。例如，"en train de"短语通常用于描述正在进行的动作（例如，"Elle est en train de manger"（她正在吃饭）），"avoir l'air"短语通常用于描述某人或某物的外观或感觉（例如，"Elle a l'air fatiguée"（她看起来很累））。</p>
 
                 <h3>过去分词与动词语态的关系</h3>
-                <p>在法语中，过去分词与动词语态有着密切的关系。在被动语态中，过去分词通常作为谓语动词，表明主语正在承受动作的影响。例如：“La porte est fermée”（门被关闭了）。</p>
+                <p>在法语中，过去分词与动词语态有着密切的关系。在被动语态中，过去分词通常作为谓语动词，表明主语正在承受动作的影响。例如："La porte est fermée"（门被关闭了）。</p>
 
                 <h3>过去分词的否定形式</h3>
-                <p>在法语中，过去分词的否定形式通常通过在助动词“avoir”或“être”后加上否定副词“ne”和“pas”来构成。例如：“Il n'a pas mangé”（他没有吃过）。</p>
+                <p>在法语中，过去分词的否定形式通常通过在助动词"avoir"或"être"后加上否定副词"ne"和"pas"来构成。例如："Il n'a pas mangé"（他没有吃过）。</p>
             </div>
         </section>
     </main>

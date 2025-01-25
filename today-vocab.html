@@ -5,6 +5,161 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>今日法国 - 最新新闻</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(120deg, #f8f9fa, #eceff1, #cfd8dc);
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            animation: gradientBG 15s ease infinite;
+            background-size: 400% 400%;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50% }
+            50% { background-position: 100% 50% }
+            100% { background-position: 0% 50% }
+        }
+
+        header {
+            background: linear-gradient(135deg, #455a64, #37474f);
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '📰';
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            font-size: 80px;
+            opacity: 0.1;
+            animation: newsFloat 6s ease-in-out infinite;
+        }
+
+        @keyframes newsFloat {
+            0% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(10deg); }
+            100% { transform: translateY(0) rotate(0deg); }
+        }
+
+        .news-item {
+            background: rgba(255,255,255,0.9);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+            border-left: 5px solid #455a64;
+            transition: all 0.3s ease;
+            animation: slideIn 0.5s ease-out forwards;
+            opacity: 0;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .news-item:nth-child(1) { animation-delay: 0.1s; }
+        .news-item:nth-child(2) { animation-delay: 0.3s; }
+        .news-item:nth-child(3) { animation-delay: 0.5s; }
+
+        .news-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .news-item h3 {
+            color: #455a64;
+            margin-bottom: 15px;
+            position: relative;
+            padding-left: 35px;
+        }
+
+        .news-item h3::before {
+            content: '📌';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 24px;
+            animation: pin 2s infinite;
+        }
+
+        @keyframes pin {
+            0%, 100% { transform: translateY(-50%) rotate(0deg); }
+            50% { transform: translateY(-50%) rotate(15deg); }
+        }
+
+        .news-item p {
+            color: #546e7a;
+            line-height: 1.8;
+            margin: 15px 0;
+        }
+
+        .news-item small {
+            color: #78909c;
+            display: block;
+            margin-top: 15px;
+            font-style: italic;
+        }
+
+        .news-item a {
+            color: #455a64;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .news-item a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #455a64;
+            transition: width 0.3s ease;
+        }
+
+        .news-item a:hover::after {
+            width: 100%;
+        }
+
+        #news-container {
+            padding: 20px;
+            position: relative;
+        }
+
+        footer {
+            background: linear-gradient(135deg, #455a64, #37474f);
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .news-item {
+                margin: 15px 10px;
+                padding: 20px;
+            }
+        }
+    </style>
 </head>
 <body>
     <header>

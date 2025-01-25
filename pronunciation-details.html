@@ -3,8 +3,197 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>发音规则</title>
+    <title>法语发音</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(120deg, #f8f9fa, #e3f2fd, #bbdefb);
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            animation: gradientBG 15s ease infinite;
+            background-size: 400% 400%;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50% }
+            50% { background-position: 100% 50% }
+            100% { background-position: 0% 50% }
+        }
+
+        header {
+            background: linear-gradient(135deg, #1976d2, #1565c0);
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '🎵';
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            font-size: 80px;
+            opacity: 0.1;
+            animation: soundWave 4s ease-in-out infinite;
+        }
+
+        @keyframes soundWave {
+            0% { transform: scale(1) rotate(0deg); }
+            25% { transform: scale(1.1) rotate(10deg); }
+            50% { transform: scale(1) rotate(0deg); }
+            75% { transform: scale(0.9) rotate(-10deg); }
+            100% { transform: scale(1) rotate(0deg); }
+        }
+
+        .pronunciation-section {
+            background: rgba(255,255,255,0.9);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+            border-left: 5px solid #1976d2;
+            transition: all 0.3s ease;
+        }
+
+        .pronunciation-section:hover {
+            transform: translateX(10px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .sound-card {
+            background: rgba(25, 118, 210, 0.05);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border: 1px solid rgba(25, 118, 210, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sound-card::before {
+            content: '🔊';
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: translateY(-50%) scale(1); opacity: 1; }
+            50% { transform: translateY(-50%) scale(1.2); opacity: 0.7; }
+        }
+
+        .example-box {
+            background: rgba(25, 118, 210, 0.05);
+            padding: 20px 20px 20px 50px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border: 1px solid rgba(25, 118, 210, 0.2);
+            position: relative;
+        }
+
+        .example-box::before {
+            content: '🗣️';
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            animation: speak 3s infinite;
+        }
+
+        @keyframes speak {
+            0%, 100% { transform: translateY(-50%) scale(1); }
+            50% { transform: translateY(-50%) scale(1.1); }
+        }
+
+        h2, h3 {
+            color: #1976d2;
+            border-bottom: 2px solid #1565c0;
+            padding-bottom: 10px;
+            margin-top: 25px;
+            position: relative;
+        }
+
+        h2::after, h3::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #1976d2;
+            animation: expandWidth 1s ease forwards;
+        }
+
+        @keyframes expandWidth {
+            to { width: 100%; }
+        }
+
+        .phonetic-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .phonetic-table th, .phonetic-table td {
+            padding: 12px;
+            border: 1px solid rgba(25, 118, 210, 0.2);
+            text-align: left;
+            transition: all 0.3s ease;
+        }
+
+        .phonetic-table th {
+            background: rgba(25, 118, 210, 0.1);
+            color: #1976d2;
+        }
+
+        .phonetic-table tr:hover td {
+            background: rgba(25, 118, 210, 0.05);
+        }
+
+        .note-box {
+            background: rgba(25, 118, 210, 0.05);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border: 1px solid rgba(25, 118, 210, 0.2);
+            position: relative;
+            padding-left: 40px;
+        }
+
+        .note-box::before {
+            content: '🎼';
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            animation: float 3s infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(-50%); }
+            50% { transform: translateY(-60%); }
+        }
+
+        footer {
+            background: linear-gradient(135deg, #1976d2, #1565c0);
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+    </style>
 </head>
 <body>
     <header>
